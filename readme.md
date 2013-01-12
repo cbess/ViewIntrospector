@@ -8,7 +8,7 @@ View Introspector
 
 View Introspector is a desktop app for the iOS Simulator that aid in debugging user interfaces built with UIKit. It's especially useful for UI layouts that are dynamically created or can change during runtime.
 
-![Introspect Demo Image](http://domesticcat.com.au/projects/introspect/introspectdemo.png)
+![Main Window Screenshot](https://github.com/cbess/ViewIntrospector/raw/master/main-window-screenshot.jpg)
 
 ![View Introspector Screenshot](https://github.com/cbess/ViewIntrospector/raw/master/cbintrospector-screenshot.jpg)
 
