@@ -42,13 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E3F0D98155E361C0015A478 /* CBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CBMacros.h; path = ../../CBIntrospect/CBMacros.h; sourceTree = "<group>"; };
-		1E3F0D9A155E364F0015A478 /* CBIntrospectConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CBIntrospectConstants.h; path = ../../CBIntrospect/CBIntrospectConstants.h; sourceTree = "<group>"; };
+		1E3F0D98155E361C0015A478 /* CBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
+		1E3F0D9A155E364F0015A478 /* CBIntrospectConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBIntrospectConstants.h; sourceTree = "<group>"; };
 		1E3F0D9F155E54220015A478 /* NSView.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NSView.icns; sourceTree = "<group>"; };
 		1E4BDF7015C1CC4D00FEF5FA /* CBSharedHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBSharedHeader.h; sourceTree = "<group>"; };
 		1E6E7A54157F9B6E0080EFE1 /* appicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = appicon.icns; path = CBIntrospector/appicon.icns; sourceTree = SOURCE_ROOT; };
-		1E73F13215C33E22004EE6E2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../../CBIntrospect/JSONKit.h; sourceTree = "<group>"; };
-		1E73F13315C33E22004EE6E2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../../CBIntrospect/JSONKit.m; sourceTree = "<group>"; };
+		1E73F13215C33E22004EE6E2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		1E73F13315C33E22004EE6E2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		1E9245C5155AABE600CE32D3 /* CBTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTreeView.h; sourceTree = "<group>"; };
 		1E9245C6155AABE600CE32D3 /* CBTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTreeView.m; sourceTree = "<group>"; };
 		1ED64EE715C0883700FA1396 /* CBViewMessengerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBViewMessengerWindow.h; sourceTree = "<group>"; };
