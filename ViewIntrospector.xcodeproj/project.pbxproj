@@ -62,17 +62,17 @@
 		92CBB0A815521B3C00F2217D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		92CBB0A915521B3C00F2217D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		92CBB0AA15521B3C00F2217D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		92CBB0AD15521B3C00F2217D /* CBIntrospector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CBIntrospector-Info.plist"; sourceTree = "<group>"; };
+		92CBB0AD15521B3C00F2217D /* ViewIntrospector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViewIntrospector-Info.plist"; sourceTree = "<group>"; };
 		92CBB0AF15521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92CBB0B115521B3C00F2217D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		92CBB0B315521B3C00F2217D /* CBIntrospector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBIntrospector-Prefix.pch"; sourceTree = "<group>"; };
+		92CBB0B315521B3C00F2217D /* ViewIntrospector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewIntrospector-Prefix.pch"; sourceTree = "<group>"; };
 		92CBB0B515521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		92CBB0B715521B3C00F2217D /* CBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAppDelegate.h; sourceTree = "<group>"; };
 		92CBB0B815521B3C00F2217D /* CBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAppDelegate.m; sourceTree = "<group>"; };
 		92CBB0BB15521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		92CBB0C215521B3C00F2217D /* CBIntrospectorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBIntrospectorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92CBB0C215521B3C00F2217D /* ViewIntrospectorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewIntrospectorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0C315521B3C00F2217D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		92CBB0CA15521B3C00F2217D /* CBIntrospectorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CBIntrospectorTests-Info.plist"; sourceTree = "<group>"; };
+		92CBB0CA15521B3C00F2217D /* ViewIntrospectorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViewIntrospectorTests-Info.plist"; sourceTree = "<group>"; };
 		92CBB0CC15521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92CBB0CE15521B3C00F2217D /* CBIntrospectorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBIntrospectorTests.h; sourceTree = "<group>"; };
 		92CBB0CF15521B3C00F2217D /* CBIntrospectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBIntrospectorTests.m; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				92CBB0A115521B3C00F2217D /* View Introspector.app */,
-				92CBB0C215521B3C00F2217D /* CBIntrospectorTests.octest */,
+				92CBB0C215521B3C00F2217D /* ViewIntrospectorTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,10 +178,10 @@
 			children = (
 				92CBB10E155255B200F2217D /* xibs */,
 				1E3F0D9E155E54220015A478 /* images */,
-				92CBB0AD15521B3C00F2217D /* CBIntrospector-Info.plist */,
+				92CBB0AD15521B3C00F2217D /* ViewIntrospector-Info.plist */,
 				92CBB0AE15521B3C00F2217D /* InfoPlist.strings */,
 				92CBB0B115521B3C00F2217D /* main.m */,
-				92CBB0B315521B3C00F2217D /* CBIntrospector-Prefix.pch */,
+				92CBB0B315521B3C00F2217D /* ViewIntrospector-Prefix.pch */,
 				92CBB0B415521B3C00F2217D /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -200,7 +200,7 @@
 		92CBB0C915521B3C00F2217D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				92CBB0CA15521B3C00F2217D /* CBIntrospectorTests-Info.plist */,
+				92CBB0CA15521B3C00F2217D /* ViewIntrospectorTests-Info.plist */,
 				92CBB0CB15521B3C00F2217D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -258,9 +258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92CBB0A015521B3C00F2217D /* CBIntrospector */ = {
+		92CBB0A015521B3C00F2217D /* ViewIntrospector */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92CBB0D315521B3C00F2217D /* Build configuration list for PBXNativeTarget "CBIntrospector" */;
+			buildConfigurationList = 92CBB0D315521B3C00F2217D /* Build configuration list for PBXNativeTarget "ViewIntrospector" */;
 			buildPhases = (
 				92CBB09D15521B3C00F2217D /* Sources */,
 				92CBB09E15521B3C00F2217D /* Frameworks */,
@@ -270,14 +270,14 @@
 			);
 			dependencies = (
 			);
-			name = CBIntrospector;
+			name = ViewIntrospector;
 			productName = CBIntrospector;
 			productReference = 92CBB0A115521B3C00F2217D /* View Introspector.app */;
 			productType = "com.apple.product-type.application";
 		};
-		92CBB0C115521B3C00F2217D /* CBIntrospectorTests */ = {
+		92CBB0C115521B3C00F2217D /* ViewIntrospectorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92CBB0D615521B3C00F2217D /* Build configuration list for PBXNativeTarget "CBIntrospectorTests" */;
+			buildConfigurationList = 92CBB0D615521B3C00F2217D /* Build configuration list for PBXNativeTarget "ViewIntrospectorTests" */;
 			buildPhases = (
 				92CBB0BD15521B3C00F2217D /* Sources */,
 				92CBB0BE15521B3C00F2217D /* Frameworks */,
@@ -289,9 +289,9 @@
 			dependencies = (
 				92CBB0C715521B3C00F2217D /* PBXTargetDependency */,
 			);
-			name = CBIntrospectorTests;
+			name = ViewIntrospectorTests;
 			productName = CBIntrospectorTests;
-			productReference = 92CBB0C215521B3C00F2217D /* CBIntrospectorTests.octest */;
+			productReference = 92CBB0C215521B3C00F2217D /* ViewIntrospectorTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -304,7 +304,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "C. Bess";
 			};
-			buildConfigurationList = 92CBB09B15521B3C00F2217D /* Build configuration list for PBXProject "CBIntrospector" */;
+			buildConfigurationList = 92CBB09B15521B3C00F2217D /* Build configuration list for PBXProject "ViewIntrospector" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -316,8 +316,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92CBB0A015521B3C00F2217D /* CBIntrospector */,
-				92CBB0C115521B3C00F2217D /* CBIntrospectorTests */,
+				92CBB0A015521B3C00F2217D /* ViewIntrospector */,
+				92CBB0C115521B3C00F2217D /* ViewIntrospectorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -394,7 +394,7 @@
 /* Begin PBXTargetDependency section */
 		92CBB0C715521B3C00F2217D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 92CBB0A015521B3C00F2217D /* CBIntrospector */;
+			target = 92CBB0A015521B3C00F2217D /* ViewIntrospector */;
 			targetProxy = 92CBB0C615521B3C00F2217D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -485,8 +485,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBIntrospector/CBIntrospector-Prefix.pch";
-				INFOPLIST_FILE = "CBIntrospector/CBIntrospector-Info.plist";
+				GCC_PREFIX_HEADER = "CBIntrospector/ViewIntrospector-Prefix.pch";
+				INFOPLIST_FILE = "CBIntrospector/ViewIntrospector-Info.plist";
 				PRODUCT_NAME = "View Introspector";
 				WRAPPER_EXTENSION = app;
 			};
@@ -497,8 +497,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBIntrospector/CBIntrospector-Prefix.pch";
-				INFOPLIST_FILE = "CBIntrospector/CBIntrospector-Info.plist";
+				GCC_PREFIX_HEADER = "CBIntrospector/ViewIntrospector-Prefix.pch";
+				INFOPLIST_FILE = "CBIntrospector/ViewIntrospector-Info.plist";
 				PRODUCT_NAME = "View Introspector";
 				WRAPPER_EXTENSION = app;
 			};
@@ -512,8 +512,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBIntrospector/CBIntrospector-Prefix.pch";
-				INFOPLIST_FILE = "CBIntrospectorTests/CBIntrospectorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "CBIntrospectorTests/ViewIntrospectorTests-Info.plist";
+				PRODUCT_NAME = ViewIntrospectorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -527,8 +527,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBIntrospector/CBIntrospector-Prefix.pch";
-				INFOPLIST_FILE = "CBIntrospectorTests/CBIntrospectorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "CBIntrospectorTests/ViewIntrospectorTests-Info.plist";
+				PRODUCT_NAME = ViewIntrospectorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -537,7 +537,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		92CBB09B15521B3C00F2217D /* Build configuration list for PBXProject "CBIntrospector" */ = {
+		92CBB09B15521B3C00F2217D /* Build configuration list for PBXProject "ViewIntrospector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92CBB0D115521B3C00F2217D /* Debug */,
@@ -546,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92CBB0D315521B3C00F2217D /* Build configuration list for PBXNativeTarget "CBIntrospector" */ = {
+		92CBB0D315521B3C00F2217D /* Build configuration list for PBXNativeTarget "ViewIntrospector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92CBB0D415521B3C00F2217D /* Debug */,
@@ -555,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92CBB0D615521B3C00F2217D /* Build configuration list for PBXNativeTarget "CBIntrospectorTests" */ = {
+		92CBB0D615521B3C00F2217D /* Build configuration list for PBXNativeTarget "ViewIntrospectorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92CBB0D715521B3C00F2217D /* Debug */,
