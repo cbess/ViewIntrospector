@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		1E3F0DA0155E54220015A478 /* NSView.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F0D9F155E54220015A478 /* NSView.icns */; };
 		1E6E7A55157F9B6E0080EFE1 /* appicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E6E7A54157F9B6E0080EFE1 /* appicon.icns */; };
-		1E73F13415C33E22004EE6E2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E73F13315C33E22004EE6E2 /* JSONKit.m */; };
 		1E9245C7155AABE600CE32D3 /* CBTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9245C6155AABE600CE32D3 /* CBTreeView.m */; };
 		1ED64EE915C0883700FA1396 /* CBViewMessengerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED64EE815C0883700FA1396 /* CBViewMessengerWindow.m */; };
 		92C0AF61157D9E26003F13FC /* CBProjectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0AF60157D9E26003F13FC /* CBProjectWindow.m */; };
 		92C0AF64157DA0F9003F13FC /* CBPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0AF63157DA0F9003F13FC /* CBPathItem.m */; };
+		92CA486216A1F1EC0099266A /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E73F13315C33E22004EE6E2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
@@ -377,7 +377,7 @@
 				92C0AF61157D9E26003F13FC /* CBProjectWindow.m in Sources */,
 				92C0AF64157DA0F9003F13FC /* CBPathItem.m in Sources */,
 				1ED64EE915C0883700FA1396 /* CBViewMessengerWindow.m in Sources */,
-				1E73F13415C33E22004EE6E2 /* JSONKit.m in Sources */,
+				92CA486216A1F1EC0099266A /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +483,7 @@
 		92CBB0D415521B3C00F2217D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBIntrospector/ViewIntrospector-Prefix.pch";
@@ -495,6 +496,7 @@
 		92CBB0D515521B3C00F2217D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CBIntrospector/ViewIntrospector-Prefix.pch";
@@ -508,10 +510,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CBIntrospector.app/Contents/MacOS/CBIntrospector";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBIntrospector/CBIntrospector-Prefix.pch";
+				GCC_PREFIX_HEADER = "CBIntrospector/ViewIntrospector-Prefix.pch";
 				INFOPLIST_FILE = "CBIntrospectorTests/ViewIntrospectorTests-Info.plist";
 				PRODUCT_NAME = ViewIntrospectorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -523,10 +526,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CBIntrospector.app/Contents/MacOS/CBIntrospector";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CBIntrospector/CBIntrospector-Prefix.pch";
+				GCC_PREFIX_HEADER = "CBIntrospector/ViewIntrospector-Prefix.pch";
 				INFOPLIST_FILE = "CBIntrospectorTests/ViewIntrospectorTests-Info.plist";
 				PRODUCT_NAME = ViewIntrospectorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";

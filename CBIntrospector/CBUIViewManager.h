@@ -12,8 +12,8 @@
 @protocol CBUIViewManagerDelegate;
 
 @interface CBUIViewManager : NSObject
-@property (nonatomic, assign) id<CBUIViewManagerDelegate> delegate;
-@property (nonatomic, retain) CBUIView *currentView;
+@property (nonatomic, weak) id<CBUIViewManagerDelegate> delegate;
+@property (nonatomic, strong) CBUIView *currentView;
 @property (nonatomic, copy) NSString *syncDirectoryPath; // the last known sync directory
 - (void)sync;
 // tells the device to select the specified view

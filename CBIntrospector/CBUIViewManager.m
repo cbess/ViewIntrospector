@@ -23,14 +23,6 @@
 @synthesize delegate;
 @synthesize syncDirectoryPath;
 
-- (void)dealloc
-{
-    self.syncDirectoryPath = nil;
-    self.currentView = nil;
-    self.delegate = nil;
-    [super dealloc];
-}
-
 - (void)sync
 {
     [self syncNow];
@@ -82,7 +74,7 @@
         // if no current view, then load it
         if (self.currentView == nil)
         {
-            self.currentView = [[[CBUIView alloc] initWithJSON:jsonInfo] autorelease];
+            self.currentView = [[CBUIView alloc] initWithJSON:jsonInfo];
             
             if (self.currentView)
                 [self.delegate viewManagerUpdatedViewFromDisk:self];

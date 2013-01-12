@@ -12,7 +12,7 @@
 @class CBUIView;
 
 @interface CBViewMessengerWindow : NSWindow
-@property (nonatomic, assign) CBIntrospectorWindow *introspectorWindow;
+@property (nonatomic, weak) CBIntrospectorWindow *introspectorWindow;
 @property (nonatomic, strong) CBUIView *receiverView;
 - (void)clearHistory;
 @end

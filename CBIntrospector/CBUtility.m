@@ -29,15 +29,14 @@ static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPh
 	[alert setMessageText:msg];
 	
 	[alert runModal];
-	[alert release];
 }
 
 - (NSDictionary *)dictionaryWithJSONFilePath:(NSString *)path
 {
     NSError *error = nil;
-    NSString *jsonString = [[[NSString alloc] initWithContentsOfFile:path
+    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:path
                                                             encoding:NSUTF8StringEncoding
-                                                               error:&error] autorelease];
+                                                               error:&error];
     if (error)
         return nil;
     

@@ -11,9 +11,9 @@
 #import "CBIntrospectorWindow.h"
 
 @interface CBProjectWindow () <NSOutlineViewDataSource>
-@property (assign) IBOutlet NSOutlineView *outlineView;
-@property (assign) IBOutlet NSProgressIndicator *progressIndicator;
-@property (assign) IBOutlet CBIntrospectorWindow *introspectorWindow;
+@property (weak) IBOutlet NSOutlineView *outlineView;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
+@property (weak) IBOutlet CBIntrospectorWindow *introspectorWindow;
 @property (nonatomic, readonly) NSRegularExpression *versionRegex;
 @property (nonatomic, strong) NSArray *pathItems;
 @end
@@ -29,7 +29,6 @@
 {
     CB_Release(_versionRegex);
     CB_Release(_pathItems);
-    [super dealloc];
 }
 
 - (NSRegularExpression *)versionRegex

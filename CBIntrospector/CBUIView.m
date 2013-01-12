@@ -36,15 +36,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.className = nil;
-    self.memoryAddress = nil;
-    self.viewDescription = nil;
-    self.syncFilePath = nil;
-    [super dealloc];
-}
-
 #pragma mark - Properties
 
 - (void)setHidden:(BOOL)hidden

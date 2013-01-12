@@ -24,21 +24,21 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     // honored in [loadCurrentViewControls]
     BOOL _doUpdateSelectedViewFile;
 }
-@property (assign) IBOutlet NSMenuItem *showAllSubviewsMenuItem;
-@property (assign) IBOutlet NSMenuItem *messageActiveViewMenuItem;
-@property (assign) IBOutlet NSTextView *textView;
-@property (assign) IBOutlet NSSplitView *splitView;
-@property (assign) IBOutlet CBTreeView *treeView;
-@property (assign) IBOutlet NSButton *headerButton;
-@property (assign) IBOutlet NSButton *hiddenSwitch;
-@property (assign) IBOutlet NSSlider *alphaSlider;
-@property (assign) IBOutlet NSTextField *heightTextField;
-@property (assign) IBOutlet NSTextField *widthTextField;
-@property (assign) IBOutlet NSTextField *topPositionTextField;
-@property (assign) IBOutlet NSTextField *leftPositionTextField;
-@property (assign) IBOutlet CBProjectWindow *projectWindow;
-@property (assign) IBOutlet CBViewMessengerWindow *messengerWindow;
-@property (nonatomic, assign) NSTextField *focusedTextField;
+@property (weak) IBOutlet NSMenuItem *showAllSubviewsMenuItem;
+@property (weak) IBOutlet NSMenuItem *messageActiveViewMenuItem;
+@property (unsafe_unretained) IBOutlet NSTextView *textView;
+@property (weak) IBOutlet NSSplitView *splitView;
+@property (weak) IBOutlet CBTreeView *treeView;
+@property (weak) IBOutlet NSButton *headerButton;
+@property (weak) IBOutlet NSButton *hiddenSwitch;
+@property (weak) IBOutlet NSSlider *alphaSlider;
+@property (weak) IBOutlet NSTextField *heightTextField;
+@property (weak) IBOutlet NSTextField *widthTextField;
+@property (weak) IBOutlet NSTextField *topPositionTextField;
+@property (weak) IBOutlet NSTextField *leftPositionTextField;
+@property (weak) IBOutlet CBProjectWindow *projectWindow;
+@property (weak) IBOutlet CBViewMessengerWindow *messengerWindow;
+@property (nonatomic, weak) NSTextField *focusedTextField;
 @property (nonatomic, assign) BOOL doShowAllSubviews;
 @property (nonatomic, assign) BOOL doMessageActiveView;
 @property (nonatomic, copy) NSString *defaultTitle;
@@ -70,14 +70,6 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 @synthesize simulatorDirectoryPath;
 @synthesize defaultTitle;
 @synthesize doMessageActiveView = _doMessageActiveView;
-
-- (void)dealloc
-{
-    [_treeContents release];
-    [_viewManager release];
-    self.defaultTitle = nil;
-    [super dealloc];
-}
 
 #pragma mark - Properties
 

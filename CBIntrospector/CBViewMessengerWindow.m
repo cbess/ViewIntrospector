@@ -13,10 +13,10 @@
 
 
 @interface CBViewMessengerWindow ()
-@property (assign) IBOutlet NSButton *receiverViewButton;
-@property (assign) IBOutlet NSTextField *messageTextField;
-@property (assign) IBOutlet NSButton *sendButton;
-@property (assign) IBOutlet NSTextView *responseTextView;
+@property (weak) IBOutlet NSButton *receiverViewButton;
+@property (weak) IBOutlet NSTextField *messageTextField;
+@property (weak) IBOutlet NSButton *sendButton;
+@property (unsafe_unretained) IBOutlet NSTextView *responseTextView;
 
 @end
 
