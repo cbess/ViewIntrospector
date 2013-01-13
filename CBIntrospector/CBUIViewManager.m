@@ -29,6 +29,9 @@
     
     // create the loop (polling the file system)
     [self performSelector:@selector(sync) withObject:nil afterDelay:0.3];
+    
+    // syncing does not stop once it is started
+    _syncing = YES;
 }
 
 - (void)syncNow

@@ -169,19 +169,17 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
         // arrow keys
         case 125: // down
             [[CBUtility sharedInstance] updateIntValueWithTextField:self.focusedTextField addValue:(shiftKey ? -10 : -1)];
-//            [self controlTextDidChange:[NSNotification notificationWithName:NSControlTextDidChangeNotification object:self.focusedTextField]];
             return YES;
             
         case 126: // up
             [[CBUtility sharedInstance] updateIntValueWithTextField:self.focusedTextField addValue:(shiftKey ? 10 : 1)];
-//            [self controlTextDidChange:[NSNotification notificationWithName:NSControlTextDidChangeNotification object:self.focusedTextField]];
             return YES;
     }
     
 	if (modFlag | NSCommandKeyMask) switch (key)
 	{		
 		case 12: // Q (quit application)
-            // confirm closing
+            // confirm closing?
             return NO;
             
 		case 13: // W (close window)
@@ -199,6 +197,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     return NSDragOperationLink;
 }
 
+// provides ability to drag iOS simulator project directories, to open them as a project
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender
 {
 	NSPasteboard *paste = [sender draggingPasteboard];
@@ -347,8 +346,12 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     self.treeContents = treeInfo;
     [self.treeView reloadData];
     
-    // update the title, adding the bundle
+    // update the title, adding the bundle name
     self.title = nssprintf(@"%@ - %@", [self bundleNameForPath:self.syncDirectoryPath], self.defaultTitle);
+    
+    // make sure it is syncing
+    if (!self.viewManager.syncing && treeInfo.count > 0)
+        [self.viewManager sync];
     
     [self expandViewTree];
 }
@@ -537,7 +540,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 - (void)viewManagerClearedView:(CBUIViewManager *)manager
 {
     self.messengerWindow.receiverView = nil;
-    [self.headerButton setTitle:@"UIView Introspector"];
+    [self.headerButton setTitle:@"View Introspector"];
     self.leftPositionTextField.stringValue = self.topPositionTextField.stringValue = // below
     self.widthTextField.stringValue = self.heightTextField.stringValue = @"";
     
@@ -595,19 +598,16 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 
 #pragma mark - NSOutlineViewDelegate
 
-- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
+- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSButtonCell *)cell forTableColumn:(NSTableColumn *)tableColumn item:(NSDictionary *)jsonInfo
 {
-    NSDictionary *jsonInfo = item;
-    NSButtonCell *buttonCell = cell;
-    
     // get the name
     NSString *name = [jsonInfo valueForKey:kUIViewClassNameKey];
     if ([name hasPrefix:@"UI"])
         name = [name substringFromIndex:2]; // remove the class prefix
     
     // get the image
-    [buttonCell setTitle:name];
-    [buttonCell setImage:[NSImage imageNamed:@"NSView.icns"]];
+    cell.title = name;
+    cell.image = [NSImage imageNamed:@"NSView.icns"];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification
@@ -626,18 +626,22 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 
 #pragma mark - NSTextFieldDelegate
 
-- (void)controlTextDidChange:(NSNotification *)notification
-{
-//    NSTextField *textField = notification.object;
-//    [self textFieldUpdated:textField];
-}
-
 - (void)controlDidBecomeFirstResponder:(NSResponder *)responder
 {
     self.focusedTextField = (NSTextField*) responder;
 }
 
 #pragma mark - NSSplitView Delegate
+
+- (CGFloat)splitView:(NSSplitView *)theSplitView constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)dividerIndex
+{
+    return CGRectGetWidth(theSplitView.bounds) * .3f;
+}
+
+- (CGFloat)splitView:(NSSplitView *)theSplitView constrainMaxCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)dividerIndex
+{
+    return CGRectGetWidth(theSplitView.bounds) * .7f;
+}
 
 #if 0
 - (CGFloat)splitView:(NSSplitView *)splitView constrainSplitPosition:(CGFloat)proposedPosition ofSubviewAt:(NSInteger)dividerIndex

@@ -15,6 +15,8 @@
 @property (nonatomic, weak) id<CBUIViewManagerDelegate> delegate;
 @property (nonatomic, strong) CBUIView *currentView;
 @property (nonatomic, copy) NSString *syncDirectoryPath; // the last known sync directory
+@property (nonatomic, assign) BOOL syncing;
+
 - (void)sync;
 // tells the device to select the specified view
 - (void)updateSelectedViewToView:(CBUIView *)selectedView;
