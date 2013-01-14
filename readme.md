@@ -2,7 +2,7 @@ View Introspector
 ============
 ![app icon](https://github.com/cbess/ViewIntrospector/raw/master/CBIntrospector/appicon.png)
 
-[Download View Introspector](https://github.com/cbess/CBIntrospector/downloads)
+[Download View Introspector](http://goo.gl/eWtrr)
 
 [CBIntrospector iOS lib](https://github.com/cbess/CBIntrospector/)
 
@@ -14,7 +14,7 @@ View Introspector is a desktop app for the iOS Simulator that aid in debugging u
 
 [CBIntrospector iOS lib](https://github.com/cbess/CBIntrospector/)
 
-[Download View Introspector](https://github.com/cbess/CBIntrospector/downloads)
+[Download View Introspector](http://goo.gl/eWtrr)
 
 It uses keyboard shortcuts to handle starting, ending and other commands.  It can also be invoked via an app-wide `UIGestureRecognizer` if it is to be used on the device.
 
@@ -34,7 +34,7 @@ Features:
 View Introspector Usage
 --------------------
 
-* Download desktop app [View Introspector](https://github.com/cbess/CBIntrospector/downloads)
+* Download desktop app - [View Introspector](http://goo.gl/eWtrr)
 * Start your app
 * Start `View Introspector` desktop app
 * Install [CBIntrospector](https://github.com/cbess/CBIntrospector/) iOS lib
