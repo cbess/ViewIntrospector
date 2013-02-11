@@ -7,7 +7,7 @@
 //
 
 #import "CBUIView.h"
-#import "JSONKit.h"
+#import "NSObject+JSON.h"
 
 @interface CBUIView ()
 - (NSDictionary *)dictionaryRepresentation;
