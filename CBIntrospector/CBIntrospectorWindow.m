@@ -9,10 +9,10 @@
 #import "CBIntrospectorWindow.h"
 #import "CBUIViewManager.h"
 #import "CBUIView.h"
-#import "JSONKit.h"
 #import "CBTreeView.h"
 #import "CBProjectWindow.h"
 #import "CBViewMessengerWindow.h"
+#import "NSObject+JSON.h"
 
 // option constants
 static NSString * const kCBUserSettingShowAllSubviewsKey = @"show-subviews";
