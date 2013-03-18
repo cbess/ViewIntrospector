@@ -17,13 +17,13 @@
 
 @interface NSDictionary (JSON)
 
-- (NSString*)JSONString;
+- (NSString *)JSONString;
 
 @end
 
 
 @interface NSArray (JSON)
 
-- (NSString*)JSONString;
+- (NSString *)JSONString;
 
 @end
