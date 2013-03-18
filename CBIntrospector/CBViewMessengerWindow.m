@@ -9,7 +9,7 @@
 #import "CBViewMessengerWindow.h"
 #import "CBIntrospectorWindow.h"
 #import "CBUIView.h"
-#import "JSONKit.h"
+#import "NSObject+JSON.h"
 
 
 @interface CBViewMessengerWindow ()

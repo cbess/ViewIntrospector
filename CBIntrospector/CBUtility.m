@@ -7,7 +7,7 @@
 //
 
 #import "CBUtility.h"
-#import "JSONKit.h"
+#import "NSObject+JSON.h"
 
 static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPhone Simulator";
 

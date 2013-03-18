@@ -13,7 +13,6 @@
 		1ED64EE915C0883700FA1396 /* CBViewMessengerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED64EE815C0883700FA1396 /* CBViewMessengerWindow.m */; };
 		92C0AF61157D9E26003F13FC /* CBProjectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0AF60157D9E26003F13FC /* CBProjectWindow.m */; };
 		92C0AF64157DA0F9003F13FC /* CBPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0AF63157DA0F9003F13FC /* CBPathItem.m */; };
-		92CA486216A1F1EC0099266A /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E73F13315C33E22004EE6E2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
@@ -29,6 +28,7 @@
 		92CBB1091552260400F2217D /* CBIntrospectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB1081552260400F2217D /* CBIntrospectorWindow.m */; };
 		92CBB10D155254DB00F2217D /* CBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB10C155254DB00F2217D /* CBUtility.m */; };
 		92DF8887155653B800D63CCC /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DF8886155653B800D63CCC /* CBTextField.m */; };
+		D2E1857016C943B1008382B7 /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1856F16C943B1008382B7 /* NSObject+JSON.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,6 @@
 		1E3F0D9F155E54220015A478 /* NSView.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NSView.icns; sourceTree = "<group>"; };
 		1E4BDF7015C1CC4D00FEF5FA /* CBSharedHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBSharedHeader.h; sourceTree = "<group>"; };
 		1E6E7A54157F9B6E0080EFE1 /* appicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = appicon.icns; path = CBIntrospector/appicon.icns; sourceTree = SOURCE_ROOT; };
-		1E73F13215C33E22004EE6E2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		1E73F13315C33E22004EE6E2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		1E9245C5155AABE600CE32D3 /* CBTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTreeView.h; sourceTree = "<group>"; };
 		1E9245C6155AABE600CE32D3 /* CBTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTreeView.m; sourceTree = "<group>"; };
 		1ED64EE715C0883700FA1396 /* CBViewMessengerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBViewMessengerWindow.h; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		92CBB10C155254DB00F2217D /* CBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUtility.m; sourceTree = "<group>"; };
 		92DF8885155653B800D63CCC /* CBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextField.h; sourceTree = "<group>"; };
 		92DF8886155653B800D63CCC /* CBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextField.m; sourceTree = "<group>"; };
+		D2E1856E16C943B1008382B7 /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
+		D2E1856F16C943B1008382B7 /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,18 +214,10 @@
 				92C0AF63157DA0F9003F13FC /* CBPathItem.m */,
 				1E4BDF7015C1CC4D00FEF5FA /* CBSharedHeader.h */,
 				1E3F0D98155E361C0015A478 /* CBMacros.h */,
-				92CBB0FE15521C2800F2217D /* Third Party */,
+				D2E1856E16C943B1008382B7 /* NSObject+JSON.h */,
+				D2E1856F16C943B1008382B7 /* NSObject+JSON.m */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		92CBB0FE15521C2800F2217D /* Third Party */ = {
-			isa = PBXGroup;
-			children = (
-				1E73F13215C33E22004EE6E2 /* JSONKit.h */,
-				1E73F13315C33E22004EE6E2 /* JSONKit.m */,
-			);
-			name = "Third Party";
 			sourceTree = "<group>";
 		};
 		92CBB10A1552436400F2217D /* Views */ = {
@@ -301,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CB;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "C. Bess";
 			};
 			buildConfigurationList = 92CBB09B15521B3C00F2217D /* Build configuration list for PBXProject "ViewIntrospector" */;
@@ -377,7 +369,7 @@
 				92C0AF61157D9E26003F13FC /* CBProjectWindow.m in Sources */,
 				92C0AF64157DA0F9003F13FC /* CBPathItem.m in Sources */,
 				1ED64EE915C0883700FA1396 /* CBViewMessengerWindow.m in Sources */,
-				92CA486216A1F1EC0099266A /* JSONKit.m in Sources */,
+				D2E1857016C943B1008382B7 /* NSObject+JSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +432,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -466,6 +462,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;

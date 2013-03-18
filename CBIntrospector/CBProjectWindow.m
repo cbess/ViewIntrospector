@@ -42,7 +42,7 @@
 
 - (BOOL)textIsVersionString:(NSString *)string
 {
-    NSArray *matches = [self.versionRegex matchesInString:string options:NSMatchingCompleted range:NSMakeRange(0, string.length)];
+    NSArray *matches = [self.versionRegex matchesInString:string options:NSMatchingReportCompletion range:NSMakeRange(0, string.length)];
     return (matches.count != 0);
 }
 
