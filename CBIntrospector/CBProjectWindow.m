@@ -61,7 +61,7 @@
         else if ([self textIsVersionString:item.name]
                  && ([[NSFileManager defaultManager] fileExistsAtPath:item.path isDirectory:&isDir] && isDir))
             return YES;
-        else if ([guidRegex matchesInString:item.name options:NSMatchingCompleted range:NSMakeRange(0, item.name.length)].count)
+        else if ([guidRegex matchesInString:item.name options:NSMatchingReportCompletion range:NSMakeRange(0, item.name.length)].count)
             return YES;
         
         return NO; 
@@ -94,14 +94,13 @@
 
 #pragma mark - Outline Datasource
 
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)theItem
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(CBPathItem *)item
 {
-    if (theItem == nil)
+    if (item == nil)
     {
         return self.pathItems.count;
     }
     
-    CBPathItem *item = theItem;
     if ([self textIsVersionString:item.name])
     {
         NSArray *appDirItems = item.subItems;
@@ -112,21 +111,20 @@
     return 0;
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(CBPathItem *)item
 {
     if (item == nil)
         return YES;
-    return [self textIsVersionString:[item name]];
+    return [self textIsVersionString:item.name];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)theItem
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(CBPathItem *)item
 {
-    if (theItem == nil)
+    if (item == nil)
     {
         return [self.pathItems objectAtIndex:index];
     }
     
-    CBPathItem *item = theItem;
     if ([self textIsVersionString:item.name])
     {
         NSArray *appDirItems = item.subItems;
@@ -139,9 +137,8 @@
     return nil;
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(CBPathItem *)item
 {
-    CBPathItem *pathItem = item;
-    return pathItem.name;
+    return item.name;
 }
 @end
