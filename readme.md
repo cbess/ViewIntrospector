@@ -61,4 +61,4 @@ Provide custom name of view:
 License
 -----------
 
-Made available under the LGPL License.
+Made available under the GPL v3 license.
