@@ -14,7 +14,7 @@
 @property (strong) IBOutlet NSPopUpButton *projectPopupButton;
 @property (strong) IBOutlet NSSearchField *searchField;
 // project and platform super view
-@property (strong) IBOutlet NSView *popupContainerView;
+@property (strong) IBOutlet NSImageView *popupContainerView;
 
 @end
 
@@ -26,6 +26,13 @@
         return self.platforms[0];
     
     return _selectedPlatform;
+}
+
+#pragma mark - Overrides
+
+- (void)awakeFromNib
+{
+    self.popupContainerView.image = [NSImage imageNamed:@"platform-selector-button"];
 }
 
 #pragma mark - Misc

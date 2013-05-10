@@ -26,6 +26,10 @@
 		928FB4B6173CC54600FEC11C /* CBProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B5173CC54600FEC11C /* CBProject.m */; };
 		928FB4B9173CC55A00FEC11C /* CBPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B8173CC55A00FEC11C /* CBPlatform.m */; };
 		928FB4BC173CF66400FEC11C /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4BB173CF66400FEC11C /* NSObject+JSON.m */; };
+		928FB4C1173CFBA000FEC11C /* platform-selector-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4BD173CFBA000FEC11C /* platform-selector-button@2x.png */; };
+		928FB4C2173CFBA000FEC11C /* platform-selector-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4BE173CFBA000FEC11C /* platform-selector-chevron.png */; };
+		928FB4C3173CFBA000FEC11C /* platform-selector-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4BF173CFBA000FEC11C /* platform-selector-chevron@2x.png */; };
+		928FB4C6173CFF6D00FEC11C /* platform-selector-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4C5173CFF6D00FEC11C /* platform-selector-button.png */; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
@@ -86,6 +90,10 @@
 		928FB4B8173CC55A00FEC11C /* CBPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBPlatform.m; path = Classes/CBPlatform.m; sourceTree = "<group>"; };
 		928FB4BA173CF66400FEC11C /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+JSON.h"; path = "Classes/NSObject+JSON.h"; sourceTree = "<group>"; };
 		928FB4BB173CF66400FEC11C /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+JSON.m"; path = "Classes/NSObject+JSON.m"; sourceTree = "<group>"; };
+		928FB4BD173CFBA000FEC11C /* platform-selector-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-button@2x.png"; sourceTree = "<group>"; };
+		928FB4BE173CFBA000FEC11C /* platform-selector-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-chevron.png"; sourceTree = "<group>"; };
+		928FB4BF173CFBA000FEC11C /* platform-selector-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-chevron@2x.png"; sourceTree = "<group>"; };
+		928FB4C5173CFF6D00FEC11C /* platform-selector-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-button.png"; sourceTree = "<group>"; };
 		92CBB0A115521B3C00F2217D /* View Introspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "View Introspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0A515521B3C00F2217D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92CBB0A815521B3C00F2217D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +137,10 @@
 		1E3F0D9E155E54220015A478 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				928FB4C5173CFF6D00FEC11C /* platform-selector-button.png */,
+				928FB4BD173CFBA000FEC11C /* platform-selector-button@2x.png */,
+				928FB4BE173CFBA000FEC11C /* platform-selector-chevron.png */,
+				928FB4BF173CFBA000FEC11C /* platform-selector-chevron@2x.png */,
 				1E6E7A54157F9B6E0080EFE1 /* appicon.icns */,
 				1E3F0D9F155E54220015A478 /* NSView.icns */,
 			);
@@ -386,6 +398,10 @@
 				1E3F0DA0155E54220015A478 /* NSView.icns in Resources */,
 				1E6E7A55157F9B6E0080EFE1 /* appicon.icns in Resources */,
 				928FB4AE173CAD4C00FEC11C /* CBTitleBarContentView.xib in Resources */,
+				928FB4C1173CFBA000FEC11C /* platform-selector-button@2x.png in Resources */,
+				928FB4C2173CFBA000FEC11C /* platform-selector-chevron.png in Resources */,
+				928FB4C3173CFBA000FEC11C /* platform-selector-chevron@2x.png in Resources */,
+				928FB4C6173CFF6D00FEC11C /* platform-selector-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
