@@ -24,6 +24,8 @@
  */
 - (void)reloadWithPathItems:(NSArray *)pathItems;
 
+- (void)focusSearchField;
+
 @end
 
 @protocol CBTitleBarContentViewDelegate <NSObject>

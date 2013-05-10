@@ -159,6 +159,11 @@
         [self.delegate titleBarContentView:self selectedProject:self.selectedProject];
 }
 
+- (void)focusSearchField
+{
+    [self.searchField becomeFirstResponder];
+}
+
 #pragma mark - Events
 
 - (IBAction)reloadButtonClicked:(id)sender

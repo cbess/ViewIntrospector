@@ -156,7 +156,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 { // handles key down events
 	int key = [evt keyCode];
 	NSUInteger modFlag = [evt modifierFlags];
-    NSLog(@"main window key event: %d", key);
+//    NSLog(@"main window key event: %d", key);
     BOOL shiftKey = (modFlag | NSShiftKeyMask);
     
     // ignore keys from the tree view
@@ -193,7 +193,8 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 	if (modFlag | NSCommandKeyMask) switch (key)
 	{
         case 3: // F
-            break;
+            [self.titleBarContentView focusSearchField];
+            return YES;
             
 		case 12: // Q (quit application)
             // confirm closing?
