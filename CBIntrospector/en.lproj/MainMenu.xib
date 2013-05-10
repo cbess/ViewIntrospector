@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2843</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSButton</string>
@@ -517,6 +517,7 @@
 								</object>
 								<object class="NSMenuItem" id="293545165">
 									<reference key="NSMenu" ref="835318025"/>
+									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">Show Projects</string>
 									<string key="NSKeyEquiv">p</string>
 									<int key="NSKeyEquivModMask">1572864</int>
@@ -548,7 +549,7 @@
 				<string key="NSWindowClass">CBIntrospectorWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMinSize">{550, 400}</string>
+				<string key="NSWindowContentMinSize">{700, 400}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -1249,8 +1250,8 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="513295214"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
-				<string key="NSMinSize">{550, 422}</string>
+				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSMinSize">{700, 422}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<string key="NSFrameAutosaveName">mainwindow</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1266,7 +1267,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{400, 200}</string>
 				<object class="NSView" key="NSWindowView" id="1013272450">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSScrollView" id="417841076">
@@ -1458,10 +1459,11 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{414, 436}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="417841076"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
 				<string key="NSMinSize">{400, 222}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<string key="NSFrameAutosaveName">projects</string>
@@ -1695,7 +1697,7 @@
 					<reference key="NSNextKeyView" ref="969263695"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<string key="NSFrameAutosaveName">messenger</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -3176,7 +3178,7 @@
 				<string key="1733.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1734.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1736.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="1736.NSWindowTemplate.visibleAtLaunch"/>
+				<boolean value="NO" key="1736.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="1737.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1738.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1741.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3317,21 +3319,18 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">CBIntrospectorWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="hiddenSwitchChanged:">id</string>
-						<string key="treeNodeClicked:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="hiddenSwitchChanged:">
-							<string key="name">hiddenSwitchChanged:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="treeNodeClicked:">
+					<string key="superclassName">INAppStoreWindow</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">treeNodeClicked:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">treeNodeClicked:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">treeNodeClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="alphaSlider">NSSlider</string>
 						<string key="headerButton">NSButton</string>
@@ -3484,6 +3483,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CBViewMessengerWindow.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">INAppStoreWindow</string>
+					<string key="superclassName">NSWindow</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/INAppStoreWindow.h</string>
 					</object>
 				</object>
 			</array>
