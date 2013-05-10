@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface CBUtility : NSObject
+
 + (CBUtility *)sharedInstance;
 
 - (void)showMessageBoxWithString:(NSString *)msg;
 - (NSDictionary *)dictionaryWithJSONFilePath:(NSString *)path;
 - (int)updateIntValueWithTextField:(NSTextField *)textField addValue:(NSInteger)addValue;
 - (NSString *)simulatorDirectoryPath;
+- (id)objectWithClass:(Class)klass inNibNamed:(NSString *)nibNamed;
+
 @end

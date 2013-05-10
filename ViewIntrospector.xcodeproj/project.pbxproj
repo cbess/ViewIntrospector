@@ -9,26 +9,29 @@
 /* Begin PBXBuildFile section */
 		1E3F0DA0155E54220015A478 /* NSView.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F0D9F155E54220015A478 /* NSView.icns */; };
 		1E6E7A55157F9B6E0080EFE1 /* appicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E6E7A54157F9B6E0080EFE1 /* appicon.icns */; };
-		1E9245C7155AABE600CE32D3 /* CBTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9245C6155AABE600CE32D3 /* CBTreeView.m */; };
-		1ED64EE915C0883700FA1396 /* CBViewMessengerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED64EE815C0883700FA1396 /* CBViewMessengerWindow.m */; };
-		92C0AF61157D9E26003F13FC /* CBProjectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0AF60157D9E26003F13FC /* CBProjectWindow.m */; };
-		92C0AF64157DA0F9003F13FC /* CBPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0AF63157DA0F9003F13FC /* CBPathItem.m */; };
+		928FB486173CAA6A00FEC11C /* CBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB481173CAA6A00FEC11C /* CBAppDelegate.m */; };
+		928FB487173CAA6A00FEC11C /* CBUIViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB483173CAA6A00FEC11C /* CBUIViewManager.m */; };
+		928FB497173CAA8700FEC11C /* CBIntrospectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB48A173CAA8700FEC11C /* CBIntrospectorWindow.m */; };
+		928FB499173CAA8700FEC11C /* CBProjectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB48E173CAA8700FEC11C /* CBProjectWindow.m */; };
+		928FB49A173CAA8700FEC11C /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB490173CAA8700FEC11C /* CBTextField.m */; };
+		928FB49B173CAA8700FEC11C /* CBTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB492173CAA8700FEC11C /* CBTreeView.m */; };
+		928FB49C173CAA8700FEC11C /* CBUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB494173CAA8700FEC11C /* CBUIView.m */; };
+		928FB49D173CAA8700FEC11C /* CBViewMessengerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB496173CAA8700FEC11C /* CBViewMessengerWindow.m */; };
+		928FB4A0173CAAB400FEC11C /* CBPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB49F173CAAB400FEC11C /* CBPathItem.m */; };
+		928FB4A9173CAAF400FEC11C /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4A6173CAAF400FEC11C /* INAppStoreWindow.m */; };
+		928FB4AA173CAAF400FEC11C /* INWindowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4A8173CAAF400FEC11C /* INWindowButton.m */; };
+		928FB4AB173CABA200FEC11C /* CBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB485173CAA6A00FEC11C /* CBUtility.m */; };
+		928FB4AE173CAD4C00FEC11C /* CBTitleBarContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4AC173CAD4C00FEC11C /* CBTitleBarContentView.xib */; };
+		928FB4B1173CADAE00FEC11C /* CBTitleBarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B0173CADAE00FEC11C /* CBTitleBarContentView.m */; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
 		92CBB0B615521B3C00F2217D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0B415521B3C00F2217D /* Credits.rtf */; };
-		92CBB0B915521B3C00F2217D /* CBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B815521B3C00F2217D /* CBAppDelegate.m */; };
 		92CBB0BC15521B3C00F2217D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0BA15521B3C00F2217D /* MainMenu.xib */; };
 		92CBB0C415521B3C00F2217D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0C315521B3C00F2217D /* SenTestingKit.framework */; };
 		92CBB0C515521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0CD15521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0CB15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0D015521B3C00F2217D /* CBIntrospectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0CF15521B3C00F2217D /* CBIntrospectorTests.m */; };
-		92CBB10215521D3100F2217D /* CBUIViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB10115521D3100F2217D /* CBUIViewManager.m */; };
-		92CBB10615521E6100F2217D /* CBUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB10515521E6100F2217D /* CBUIView.m */; };
-		92CBB1091552260400F2217D /* CBIntrospectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB1081552260400F2217D /* CBIntrospectorWindow.m */; };
-		92CBB10D155254DB00F2217D /* CBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB10C155254DB00F2217D /* CBUtility.m */; };
-		92DF8887155653B800D63CCC /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DF8886155653B800D63CCC /* CBTextField.m */; };
-		D2E1857016C943B1008382B7 /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1856F16C943B1008382B7 /* NSObject+JSON.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,19 +45,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E3F0D98155E361C0015A478 /* CBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
-		1E3F0D9A155E364F0015A478 /* CBIntrospectConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBIntrospectConstants.h; sourceTree = "<group>"; };
 		1E3F0D9F155E54220015A478 /* NSView.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NSView.icns; sourceTree = "<group>"; };
-		1E4BDF7015C1CC4D00FEF5FA /* CBSharedHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBSharedHeader.h; sourceTree = "<group>"; };
 		1E6E7A54157F9B6E0080EFE1 /* appicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = appicon.icns; path = CBIntrospector/appicon.icns; sourceTree = SOURCE_ROOT; };
-		1E9245C5155AABE600CE32D3 /* CBTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTreeView.h; sourceTree = "<group>"; };
-		1E9245C6155AABE600CE32D3 /* CBTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTreeView.m; sourceTree = "<group>"; };
-		1ED64EE715C0883700FA1396 /* CBViewMessengerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBViewMessengerWindow.h; sourceTree = "<group>"; };
-		1ED64EE815C0883700FA1396 /* CBViewMessengerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBViewMessengerWindow.m; sourceTree = "<group>"; };
-		92C0AF5F157D9E26003F13FC /* CBProjectWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBProjectWindow.h; sourceTree = "<group>"; };
-		92C0AF60157D9E26003F13FC /* CBProjectWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBProjectWindow.m; sourceTree = "<group>"; };
-		92C0AF62157DA0F9003F13FC /* CBPathItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPathItem.h; sourceTree = "<group>"; };
-		92C0AF63157DA0F9003F13FC /* CBPathItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPathItem.m; sourceTree = "<group>"; };
+		928FB480173CAA6A00FEC11C /* CBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBAppDelegate.h; path = Classes/CBAppDelegate.h; sourceTree = "<group>"; };
+		928FB481173CAA6A00FEC11C /* CBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBAppDelegate.m; path = Classes/CBAppDelegate.m; sourceTree = "<group>"; };
+		928FB482173CAA6A00FEC11C /* CBUIViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBUIViewManager.h; path = Classes/CBUIViewManager.h; sourceTree = "<group>"; };
+		928FB483173CAA6A00FEC11C /* CBUIViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBUIViewManager.m; path = Classes/CBUIViewManager.m; sourceTree = "<group>"; };
+		928FB484173CAA6A00FEC11C /* CBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBUtility.h; path = Classes/CBUtility.h; sourceTree = "<group>"; };
+		928FB485173CAA6A00FEC11C /* CBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBUtility.m; path = Classes/CBUtility.m; sourceTree = "<group>"; };
+		928FB489173CAA8700FEC11C /* CBIntrospectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBIntrospectorWindow.h; path = Classes/CBIntrospectorWindow.h; sourceTree = "<group>"; };
+		928FB48A173CAA8700FEC11C /* CBIntrospectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBIntrospectorWindow.m; path = Classes/CBIntrospectorWindow.m; sourceTree = "<group>"; };
+		928FB48D173CAA8700FEC11C /* CBProjectWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBProjectWindow.h; path = Classes/CBProjectWindow.h; sourceTree = "<group>"; };
+		928FB48E173CAA8700FEC11C /* CBProjectWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBProjectWindow.m; path = Classes/CBProjectWindow.m; sourceTree = "<group>"; };
+		928FB48F173CAA8700FEC11C /* CBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBTextField.h; path = Classes/CBTextField.h; sourceTree = "<group>"; };
+		928FB490173CAA8700FEC11C /* CBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBTextField.m; path = Classes/CBTextField.m; sourceTree = "<group>"; };
+		928FB491173CAA8700FEC11C /* CBTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBTreeView.h; path = Classes/CBTreeView.h; sourceTree = "<group>"; };
+		928FB492173CAA8700FEC11C /* CBTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBTreeView.m; path = Classes/CBTreeView.m; sourceTree = "<group>"; };
+		928FB493173CAA8700FEC11C /* CBUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBUIView.h; path = Classes/CBUIView.h; sourceTree = "<group>"; };
+		928FB494173CAA8700FEC11C /* CBUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBUIView.m; path = Classes/CBUIView.m; sourceTree = "<group>"; };
+		928FB495173CAA8700FEC11C /* CBViewMessengerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBViewMessengerWindow.h; path = Classes/CBViewMessengerWindow.h; sourceTree = "<group>"; };
+		928FB496173CAA8700FEC11C /* CBViewMessengerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBViewMessengerWindow.m; path = Classes/CBViewMessengerWindow.m; sourceTree = "<group>"; };
+		928FB49E173CAAB400FEC11C /* CBPathItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBPathItem.h; path = Classes/CBPathItem.h; sourceTree = "<group>"; };
+		928FB49F173CAAB400FEC11C /* CBPathItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBPathItem.m; path = Classes/CBPathItem.m; sourceTree = "<group>"; };
+		928FB4A1173CAAC500FEC11C /* CBIntrospectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBIntrospectConstants.h; path = "Other Sources/CBIntrospectConstants.h"; sourceTree = "<group>"; };
+		928FB4A2173CAAC500FEC11C /* CBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBMacros.h; path = "Other Sources/CBMacros.h"; sourceTree = "<group>"; };
+		928FB4A3173CAAC500FEC11C /* CBSharedHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBSharedHeader.h; path = "Other Sources/CBSharedHeader.h"; sourceTree = "<group>"; };
+		928FB4A5173CAAF400FEC11C /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
+		928FB4A6173CAAF400FEC11C /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
+		928FB4A7173CAAF400FEC11C /* INWindowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INWindowButton.h; sourceTree = "<group>"; };
+		928FB4A8173CAAF400FEC11C /* INWindowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INWindowButton.m; sourceTree = "<group>"; };
+		928FB4AD173CAD4C00FEC11C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBTitleBarContentView.xib; sourceTree = "<group>"; };
+		928FB4AF173CADAE00FEC11C /* CBTitleBarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBTitleBarContentView.h; path = Classes/CBTitleBarContentView.h; sourceTree = "<group>"; };
+		928FB4B0173CADAE00FEC11C /* CBTitleBarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBTitleBarContentView.m; path = Classes/CBTitleBarContentView.m; sourceTree = "<group>"; };
 		92CBB0A115521B3C00F2217D /* View Introspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "View Introspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0A515521B3C00F2217D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92CBB0A815521B3C00F2217D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,8 +87,6 @@
 		92CBB0B115521B3C00F2217D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92CBB0B315521B3C00F2217D /* ViewIntrospector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewIntrospector-Prefix.pch"; sourceTree = "<group>"; };
 		92CBB0B515521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		92CBB0B715521B3C00F2217D /* CBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAppDelegate.h; sourceTree = "<group>"; };
-		92CBB0B815521B3C00F2217D /* CBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAppDelegate.m; sourceTree = "<group>"; };
 		92CBB0BB15521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		92CBB0C215521B3C00F2217D /* ViewIntrospectorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewIntrospectorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0C315521B3C00F2217D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -74,18 +94,6 @@
 		92CBB0CC15521B3C00F2217D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92CBB0CE15521B3C00F2217D /* CBIntrospectorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBIntrospectorTests.h; sourceTree = "<group>"; };
 		92CBB0CF15521B3C00F2217D /* CBIntrospectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBIntrospectorTests.m; sourceTree = "<group>"; };
-		92CBB10015521D3100F2217D /* CBUIViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUIViewManager.h; sourceTree = "<group>"; };
-		92CBB10115521D3100F2217D /* CBUIViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIViewManager.m; sourceTree = "<group>"; };
-		92CBB10415521E6100F2217D /* CBUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUIView.h; sourceTree = "<group>"; };
-		92CBB10515521E6100F2217D /* CBUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIView.m; sourceTree = "<group>"; };
-		92CBB1071552260400F2217D /* CBIntrospectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBIntrospectorWindow.h; sourceTree = "<group>"; };
-		92CBB1081552260400F2217D /* CBIntrospectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBIntrospectorWindow.m; sourceTree = "<group>"; };
-		92CBB10B155254DA00F2217D /* CBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtility.h; sourceTree = "<group>"; };
-		92CBB10C155254DB00F2217D /* CBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUtility.m; sourceTree = "<group>"; };
-		92DF8885155653B800D63CCC /* CBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextField.h; sourceTree = "<group>"; };
-		92DF8886155653B800D63CCC /* CBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextField.m; sourceTree = "<group>"; };
-		D2E1856E16C943B1008382B7 /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
-		D2E1856F16C943B1008382B7 /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,39 @@
 				1E3F0D9F155E54220015A478 /* NSView.icns */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		928FB47F173CA9D800FEC11C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				928FB4A4173CAAF400FEC11C /* INAppStoreWindow */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		928FB4A4173CAAF400FEC11C /* INAppStoreWindow */ = {
+			isa = PBXGroup;
+			children = (
+				928FB4A5173CAAF400FEC11C /* INAppStoreWindow.h */,
+				928FB4A6173CAAF400FEC11C /* INAppStoreWindow.m */,
+				928FB4A7173CAAF400FEC11C /* INWindowButton.h */,
+				928FB4A8173CAAF400FEC11C /* INWindowButton.m */,
+			);
+			name = INAppStoreWindow;
+			path = "Other Sources/Vendor/INAppStoreWindow";
+			sourceTree = "<group>";
+		};
+		928FB4B2173CADC700FEC11C /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				928FB489173CAA8700FEC11C /* CBIntrospectorWindow.h */,
+				928FB48A173CAA8700FEC11C /* CBIntrospectorWindow.m */,
+				928FB495173CAA8700FEC11C /* CBViewMessengerWindow.h */,
+				928FB496173CAA8700FEC11C /* CBViewMessengerWindow.m */,
+				928FB48D173CAA8700FEC11C /* CBProjectWindow.h */,
+				928FB48E173CAA8700FEC11C /* CBProjectWindow.m */,
+			);
+			name = Windows;
 			sourceTree = "<group>";
 		};
 		92CBB09615521B3C00F2217D = {
@@ -160,13 +201,14 @@
 		92CBB0AB15521B3C00F2217D /* CBIntrospector */ = {
 			isa = PBXGroup;
 			children = (
+				928FB480173CAA6A00FEC11C /* CBAppDelegate.h */,
+				928FB481173CAA6A00FEC11C /* CBAppDelegate.m */,
+				928FB482173CAA6A00FEC11C /* CBUIViewManager.h */,
+				928FB483173CAA6A00FEC11C /* CBUIViewManager.m */,
+				928FB484173CAA6A00FEC11C /* CBUtility.h */,
+				928FB485173CAA6A00FEC11C /* CBUtility.m */,
+				928FB4B2173CADC700FEC11C /* Windows */,
 				92CBB10A1552436400F2217D /* Views */,
-				92CBB0B715521B3C00F2217D /* CBAppDelegate.h */,
-				92CBB0B815521B3C00F2217D /* CBAppDelegate.m */,
-				92CBB10015521D3100F2217D /* CBUIViewManager.h */,
-				92CBB10115521D3100F2217D /* CBUIViewManager.m */,
-				92CBB10B155254DA00F2217D /* CBUtility.h */,
-				92CBB10C155254DB00F2217D /* CBUtility.m */,
 				92CBB0FD15521C1B00F2217D /* Other Sources */,
 				92CBB0AC15521B3C00F2217D /* Supporting Files */,
 			);
@@ -209,13 +251,12 @@
 		92CBB0FD15521C1B00F2217D /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1E3F0D9A155E364F0015A478 /* CBIntrospectConstants.h */,
-				92C0AF62157DA0F9003F13FC /* CBPathItem.h */,
-				92C0AF63157DA0F9003F13FC /* CBPathItem.m */,
-				1E4BDF7015C1CC4D00FEF5FA /* CBSharedHeader.h */,
-				1E3F0D98155E361C0015A478 /* CBMacros.h */,
-				D2E1856E16C943B1008382B7 /* NSObject+JSON.h */,
-				D2E1856F16C943B1008382B7 /* NSObject+JSON.m */,
+				928FB47F173CA9D800FEC11C /* Vendor */,
+				928FB49E173CAAB400FEC11C /* CBPathItem.h */,
+				928FB49F173CAAB400FEC11C /* CBPathItem.m */,
+				928FB4A1173CAAC500FEC11C /* CBIntrospectConstants.h */,
+				928FB4A2173CAAC500FEC11C /* CBMacros.h */,
+				928FB4A3173CAAC500FEC11C /* CBSharedHeader.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -223,18 +264,14 @@
 		92CBB10A1552436400F2217D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92CBB1071552260400F2217D /* CBIntrospectorWindow.h */,
-				92CBB1081552260400F2217D /* CBIntrospectorWindow.m */,
-				92CBB10415521E6100F2217D /* CBUIView.h */,
-				92CBB10515521E6100F2217D /* CBUIView.m */,
-				92C0AF5F157D9E26003F13FC /* CBProjectWindow.h */,
-				92C0AF60157D9E26003F13FC /* CBProjectWindow.m */,
-				1ED64EE715C0883700FA1396 /* CBViewMessengerWindow.h */,
-				1ED64EE815C0883700FA1396 /* CBViewMessengerWindow.m */,
-				92DF8885155653B800D63CCC /* CBTextField.h */,
-				92DF8886155653B800D63CCC /* CBTextField.m */,
-				1E9245C5155AABE600CE32D3 /* CBTreeView.h */,
-				1E9245C6155AABE600CE32D3 /* CBTreeView.m */,
+				928FB4AF173CADAE00FEC11C /* CBTitleBarContentView.h */,
+				928FB4B0173CADAE00FEC11C /* CBTitleBarContentView.m */,
+				928FB48F173CAA8700FEC11C /* CBTextField.h */,
+				928FB490173CAA8700FEC11C /* CBTextField.m */,
+				928FB491173CAA8700FEC11C /* CBTreeView.h */,
+				928FB492173CAA8700FEC11C /* CBTreeView.m */,
+				928FB493173CAA8700FEC11C /* CBUIView.h */,
+				928FB494173CAA8700FEC11C /* CBUIView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				92CBB0BA15521B3C00F2217D /* MainMenu.xib */,
+				928FB4AC173CAD4C00FEC11C /* CBTitleBarContentView.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -324,6 +362,7 @@
 				92CBB0BC15521B3C00F2217D /* MainMenu.xib in Resources */,
 				1E3F0DA0155E54220015A478 /* NSView.icns in Resources */,
 				1E6E7A55157F9B6E0080EFE1 /* appicon.icns in Resources */,
+				928FB4AE173CAD4C00FEC11C /* CBTitleBarContentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,17 +398,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CBB0B215521B3C00F2217D /* main.m in Sources */,
-				92CBB0B915521B3C00F2217D /* CBAppDelegate.m in Sources */,
-				92CBB10215521D3100F2217D /* CBUIViewManager.m in Sources */,
-				92CBB10615521E6100F2217D /* CBUIView.m in Sources */,
-				92CBB1091552260400F2217D /* CBIntrospectorWindow.m in Sources */,
-				92CBB10D155254DB00F2217D /* CBUtility.m in Sources */,
-				92DF8887155653B800D63CCC /* CBTextField.m in Sources */,
-				1E9245C7155AABE600CE32D3 /* CBTreeView.m in Sources */,
-				92C0AF61157D9E26003F13FC /* CBProjectWindow.m in Sources */,
-				92C0AF64157DA0F9003F13FC /* CBPathItem.m in Sources */,
-				1ED64EE915C0883700FA1396 /* CBViewMessengerWindow.m in Sources */,
-				D2E1857016C943B1008382B7 /* NSObject+JSON.m in Sources */,
+				928FB486173CAA6A00FEC11C /* CBAppDelegate.m in Sources */,
+				928FB487173CAA6A00FEC11C /* CBUIViewManager.m in Sources */,
+				928FB497173CAA8700FEC11C /* CBIntrospectorWindow.m in Sources */,
+				928FB499173CAA8700FEC11C /* CBProjectWindow.m in Sources */,
+				928FB49A173CAA8700FEC11C /* CBTextField.m in Sources */,
+				928FB49B173CAA8700FEC11C /* CBTreeView.m in Sources */,
+				928FB49C173CAA8700FEC11C /* CBUIView.m in Sources */,
+				928FB49D173CAA8700FEC11C /* CBViewMessengerWindow.m in Sources */,
+				928FB4A0173CAAB400FEC11C /* CBPathItem.m in Sources */,
+				928FB4A9173CAAF400FEC11C /* INAppStoreWindow.m in Sources */,
+				928FB4AA173CAAF400FEC11C /* INWindowButton.m in Sources */,
+				928FB4AB173CABA200FEC11C /* CBUtility.m in Sources */,
+				928FB4B1173CADAE00FEC11C /* CBTitleBarContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +433,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		928FB4AC173CAD4C00FEC11C /* CBTitleBarContentView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				928FB4AD173CAD4C00FEC11C /* en */,
+			);
+			name = CBTitleBarContentView.xib;
+			sourceTree = "<group>";
+		};
 		92CBB0AE15521B3C00F2217D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

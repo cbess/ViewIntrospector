@@ -57,4 +57,21 @@ static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPh
 {
     return [NSHomeDirectory() stringByAppendingFormat:@"/%@", kCBUserDirectoryPath];
 }
+
+- (id)objectWithClass:(Class)klass inNibNamed:(NSString *)nibNamed
+{
+    NSNib *nib = [[NSNib alloc] initWithNibNamed:nibNamed bundle:nil];
+    NSArray *nibObjects = nil;
+    [nib instantiateWithOwner:nil topLevelObjects:&nibObjects];
+    
+    // find the class
+    for (id object in nibObjects)
+    {
+        if ([object isKindOfClass:klass])
+            return object;
+    }
+    
+    return nil;
+}
+
 @end

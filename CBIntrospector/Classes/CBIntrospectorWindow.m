@@ -13,6 +13,7 @@
 #import "CBProjectWindow.h"
 #import "CBViewMessengerWindow.h"
 #import "NSObject+JSON.h"
+#import "CBTitleBarContentView.h"
 
 // option constants
 static NSString * const kCBUserSettingShowAllSubviewsKey = @"show-subviews";
@@ -38,6 +39,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 @property (weak) IBOutlet NSTextField *leftPositionTextField;
 @property (weak) IBOutlet CBProjectWindow *projectWindow;
 @property (weak) IBOutlet CBViewMessengerWindow *messengerWindow;
+@property (nonatomic, strong) CBTitleBarContentView *titleBarContentView;
 @property (nonatomic, weak) NSTextField *focusedTextField;
 @property (nonatomic, assign) BOOL doShowAllSubviews;
 @property (nonatomic, assign) BOOL doMessageActiveView;
@@ -136,6 +138,8 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     self.textView.textContainer.containerSize = NSMakeSize(FLT_MAX, FLT_MAX);
     self.textView.textContainer.widthTracksTextView = NO;
     [self.textView setHorizontallyResizable:YES];
+    
+    [self setupWindowTitleBar];
 }
 
 - (BOOL)performKeyEquivalent:(NSEvent *)evt
@@ -669,4 +673,44 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
         }
     }
 }
+
+#pragma mark - Window
+
+- (void)setupWindowTitleBar
+{
+    self.titleBarHeight = 40.0;
+	self.trafficLightButtonsLeftMargin = 13.0;
+
+    self.titleBarContentView = [[CBUtility sharedInstance] objectWithClass:[CBTitleBarContentView class] inNibNamed:@"CBTitleBarContentView"];
+    self.titleBarContentView.frame = self.titleBarView.bounds;
+    [self.titleBarView addSubview:self.titleBarContentView];
+    
+    /*
+    self.titleBarDrawingBlock = ^(BOOL drawsAsMainWindow, CGRect drawingRect, CGPathRef clippingPath) {
+        CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
+        CGContextAddPath(ctx, clippingPath);
+        CGContextClip(ctx);
+        
+        NSGradient *gradient = nil;
+        if (drawsAsMainWindow)
+        {
+            gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedRed:0 green:0.319 blue:1 alpha:1]
+                                                     endingColor:[NSColor colorWithCalibratedRed:0 green:0.627 blue:1 alpha:1]];
+            [[NSColor darkGrayColor] setFill];
+        }
+        else
+        { // inactive window
+            // set the default non-main window gradient colors
+            gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:0.851f alpha:1]
+                                                     endingColor:[NSColor colorWithCalibratedWhite:0.929f alpha:1]];
+            [[NSColor colorWithCalibratedWhite:0.6f alpha:1] setFill];
+        }
+        
+        [gradient drawInRect:drawingRect angle:90];
+        NSRectFill(NSMakeRect(NSMinX(drawingRect), NSMinY(drawingRect), NSWidth(drawingRect), 1));
+    };
+    */
+    //    NSView *titleBarView = aWindow.titleBarView;
+}
+
 @end
