@@ -30,6 +30,8 @@
 		928FB4C2173CFBA000FEC11C /* platform-selector-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4BE173CFBA000FEC11C /* platform-selector-chevron.png */; };
 		928FB4C3173CFBA000FEC11C /* platform-selector-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4BF173CFBA000FEC11C /* platform-selector-chevron@2x.png */; };
 		928FB4C6173CFF6D00FEC11C /* platform-selector-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4C5173CFF6D00FEC11C /* platform-selector-button.png */; };
+		928FB4C9173D2DAA00FEC11C /* reload-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4C7173D2DAA00FEC11C /* reload-icon.png */; };
+		928FB4CA173D2DAA00FEC11C /* reload-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4C8173D2DAA00FEC11C /* reload-icon@2x.png */; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
@@ -94,6 +96,8 @@
 		928FB4BE173CFBA000FEC11C /* platform-selector-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-chevron.png"; sourceTree = "<group>"; };
 		928FB4BF173CFBA000FEC11C /* platform-selector-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-chevron@2x.png"; sourceTree = "<group>"; };
 		928FB4C5173CFF6D00FEC11C /* platform-selector-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform-selector-button.png"; sourceTree = "<group>"; };
+		928FB4C7173D2DAA00FEC11C /* reload-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon.png"; sourceTree = "<group>"; };
+		928FB4C8173D2DAA00FEC11C /* reload-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon@2x.png"; sourceTree = "<group>"; };
 		92CBB0A115521B3C00F2217D /* View Introspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "View Introspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0A515521B3C00F2217D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92CBB0A815521B3C00F2217D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -137,6 +141,8 @@
 		1E3F0D9E155E54220015A478 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				928FB4C7173D2DAA00FEC11C /* reload-icon.png */,
+				928FB4C8173D2DAA00FEC11C /* reload-icon@2x.png */,
 				928FB4C5173CFF6D00FEC11C /* platform-selector-button.png */,
 				928FB4BD173CFBA000FEC11C /* platform-selector-button@2x.png */,
 				928FB4BE173CFBA000FEC11C /* platform-selector-chevron.png */,
@@ -402,6 +408,8 @@
 				928FB4C2173CFBA000FEC11C /* platform-selector-chevron.png in Resources */,
 				928FB4C3173CFBA000FEC11C /* platform-selector-chevron@2x.png in Resources */,
 				928FB4C6173CFF6D00FEC11C /* platform-selector-button.png in Resources */,
+				928FB4C9173D2DAA00FEC11C /* reload-icon.png in Resources */,
+				928FB4CA173D2DAA00FEC11C /* reload-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
