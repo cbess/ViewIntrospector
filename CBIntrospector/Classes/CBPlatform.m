@@ -34,6 +34,7 @@
             project.path = projectDirItem.path;
             
             // store as platform project
+            project.platform = platform;
             [platform.projects addObject:project];
         }
         
@@ -50,6 +51,13 @@
     if (_projects == nil)
         _projects = [NSMutableArray arrayWithCapacity:10];
     return _projects;
+}
+
+#pragma mark - Overrides
+
+- (NSString *)description
+{
+    return nssprintf(@"<%@ name:%@>", [super description], self.name);
 }
 
 @end

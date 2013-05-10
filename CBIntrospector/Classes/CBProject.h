@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class CBPlatform;
+
 @interface CBProject : NSObject
 
+@property (nonatomic, weak) CBPlatform *platform;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *path;
 

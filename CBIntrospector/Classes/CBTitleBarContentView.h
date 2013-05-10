@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CBPlatform.h"
 
 @protocol CBTitleBarContentViewDelegate;
 
@@ -14,12 +15,13 @@
 
 @property (nonatomic, weak) id<CBTitleBarContentViewDelegate> delegate;
 @property (nonatomic, strong) NSArray *platforms;
-@property (nonatomic, strong) NSArray *projects;
+@property (nonatomic, weak) CBPlatform *selectedPlatform;
+@property (nonatomic, weak) CBProject *selectedProject;
 
 /**
  * Reloads the project and platform controls
  */
-- (void)reload;
+- (void)reloadWithPathItems:(NSArray *)pathItems;
 
 @end
 
@@ -30,14 +32,15 @@
  */
 - (void)titleBarContentView:(CBTitleBarContentView *)contentView searchString:(NSString *)searchString;
 
+@optional
 /**
  * Tells the delegate that the platform selection has changed.
  */
-- (void)titleBarContentView:(CBTitleBarContentView *)contentView platformSelectedIndex:(NSInteger)selectedIndex;
+- (void)titleBarContentView:(CBTitleBarContentView *)contentView selectedPlatform:(CBPlatform *)platform;
 
 /**
  * Tells the delegate that the project selection has changed.
  */
-- (void)titleBarContentView:(CBTitleBarContentView *)contentView projectSelectedIndex:(NSInteger)selectedIndex;
+- (void)titleBarContentView:(CBTitleBarContentView *)contentView selectedProject:(CBProject *)project;
 
 @end

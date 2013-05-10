@@ -696,6 +696,8 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     self.titleBarContentView.frame = self.titleBarView.bounds;
     [self.titleBarView addSubview:self.titleBarContentView];
     
+    [self reloadTitleBar];
+    
     /*
     self.titleBarDrawingBlock = ^(BOOL drawsAsMainWindow, CGRect drawingRect, CGPathRef clippingPath) {
         CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
@@ -729,12 +731,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 - (void)reloadTitleBar
 {
     NSArray *pathItems = [self projectPathItems];
-    
-    // get the platforms
-    
-    // get the projects
-    
-    
+    [self.titleBarContentView reloadWithPathItems:pathItems];
 }
 
 - (BOOL)textIsVersionString:(NSString *)string

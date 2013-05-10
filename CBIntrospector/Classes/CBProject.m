@@ -7,7 +7,13 @@
 //
 
 #import "CBProject.h"
+#import "CBPlatform.h"
 
 @implementation CBProject
+
+- (NSString *)description
+{
+    return nssprintf(@"<%@ platform:%@ project:%@>", [super description], self.platform.name, self.name);
+}
 
 @end
