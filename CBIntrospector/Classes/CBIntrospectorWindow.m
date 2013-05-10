@@ -142,7 +142,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     self.defaultTitle = self.title;
     
 	// user can drag a string to create a new note from the initially dropped data
-	[self registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+	[self registerForDraggedTypes:@[NSFilenamesPboardType]];
     
     // setup text view
     self.textView.font = [NSFont fontWithName:@"Monaco" size:12];
@@ -284,7 +284,9 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 
 - (IBAction)showProjectsWindowClicked:(id)sender 
 {
-    [self.projectWindow makeKeyAndOrderFront:nil];
+    // disabled for now, until I find something better it can do
+    // it will probably be refactored out
+//    [self.projectWindow makeKeyAndOrderFront:nil];
 }
 
 - (IBAction)sendMessageButtonClicked:(id)sender
@@ -451,25 +453,6 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     [self reloadTreeWithFilePath:path];
     
     [self makeKeyAndOrderFront:nil];
-}
-
-- (NSString *)bundleNameForPath:(NSString *)aPath
-{
-    if (!aPath)
-        return nil;
-    
-    NSArray *components = [aPath pathComponents];
-    NSString *guidPath = [[components subarrayWithRange:NSMakeRange(0, components.count - 2)] componentsJoinedByString:@"/"];
-    
-    // get the bundle
-    NSArray *pathNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:guidPath error:nil];
-    for (NSString *name in pathNames)
-    {
-        if ([name hasSuffix:@".app"])
-            return name;
-    }
-    
-    return nil;
 }
 
 - (void)textFieldUpdated:(NSTextField *)textField
