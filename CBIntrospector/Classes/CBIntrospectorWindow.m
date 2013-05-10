@@ -727,6 +727,15 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 
 - (void)titleBarContentViewReloadButtonClicked:(CBTitleBarContentView *)contentView
 {
+    if (self.viewManager.currentView)
+    {
+        /**
+         Allowing reload while a view is selected will un-sync the popup buttons, which may cause confusion.
+         */
+        [[CBUtility sharedInstance] showMessageBoxWithString:@"Please turn off the Introspector in the Simulator."];
+        return;
+    }
+    
     [self reloadTitleBar];
 }
 
