@@ -735,4 +735,10 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     // filter the tree view
 }
 
+- (void)titleBarContentView:(CBTitleBarContentView *)contentView selectedProject:(CBProject *)project
+{
+    [self switchProjectToDirectoryPath:project.path];
+    [self headerButtonClicked:nil];
+}
+
 @end

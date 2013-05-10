@@ -25,6 +25,7 @@
 		928FB4B1173CADAE00FEC11C /* CBTitleBarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B0173CADAE00FEC11C /* CBTitleBarContentView.m */; };
 		928FB4B6173CC54600FEC11C /* CBProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B5173CC54600FEC11C /* CBProject.m */; };
 		928FB4B9173CC55A00FEC11C /* CBPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B8173CC55A00FEC11C /* CBPlatform.m */; };
+		928FB4BC173CF66400FEC11C /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4BB173CF66400FEC11C /* NSObject+JSON.m */; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
@@ -83,6 +84,8 @@
 		928FB4B5173CC54600FEC11C /* CBProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBProject.m; path = Classes/CBProject.m; sourceTree = "<group>"; };
 		928FB4B7173CC55A00FEC11C /* CBPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBPlatform.h; path = Classes/CBPlatform.h; sourceTree = "<group>"; };
 		928FB4B8173CC55A00FEC11C /* CBPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBPlatform.m; path = Classes/CBPlatform.m; sourceTree = "<group>"; };
+		928FB4BA173CF66400FEC11C /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+JSON.h"; path = "Classes/NSObject+JSON.h"; sourceTree = "<group>"; };
+		928FB4BB173CF66400FEC11C /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+JSON.m"; path = "Classes/NSObject+JSON.m"; sourceTree = "<group>"; };
 		92CBB0A115521B3C00F2217D /* View Introspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "View Introspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0A515521B3C00F2217D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92CBB0A815521B3C00F2217D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -268,13 +271,15 @@
 		92CBB0FD15521C1B00F2217D /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				928FB4B3173CC51E00FEC11C /* Models */,
 				928FB47F173CA9D800FEC11C /* Vendor */,
 				928FB49E173CAAB400FEC11C /* CBPathItem.h */,
 				928FB49F173CAAB400FEC11C /* CBPathItem.m */,
+				928FB4BA173CF66400FEC11C /* NSObject+JSON.h */,
+				928FB4BB173CF66400FEC11C /* NSObject+JSON.m */,
 				928FB4A1173CAAC500FEC11C /* CBIntrospectConstants.h */,
 				928FB4A2173CAAC500FEC11C /* CBMacros.h */,
 				928FB4A3173CAAC500FEC11C /* CBSharedHeader.h */,
-				928FB4B3173CC51E00FEC11C /* Models */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				928FB4B1173CADAE00FEC11C /* CBTitleBarContentView.m in Sources */,
 				928FB4B6173CC54600FEC11C /* CBProject.m in Sources */,
 				928FB4B9173CC55A00FEC11C /* CBPlatform.m in Sources */,
+				928FB4BC173CF66400FEC11C /* NSObject+JSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
