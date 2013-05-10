@@ -11,7 +11,15 @@
 
 static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPhone Simulator";
 
+@interface CBUtility ()
+
+@property (nonatomic, readonly) NSRegularExpression *versionRegex;
+
+@end
+
 @implementation CBUtility
+@synthesize versionRegex = _versionRegex;
+
 + (CBUtility *)sharedInstance
 {
     static CBUtility *sharedObject = nil;
@@ -22,6 +30,17 @@ static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPh
     
     return sharedObject;
 }
+
+#pragma mark - Properties
+
+- (NSRegularExpression *)versionRegex
+{
+    if (_versionRegex == nil)
+        _versionRegex = [[NSRegularExpression alloc] initWithPattern:@"^[0-9]\\.[0-9]" options:0 error:nil];
+    return _versionRegex;
+}
+
+#pragma mark - Misc
 
 - (void)showMessageBoxWithString:(NSString *)msg
 {
@@ -55,7 +74,7 @@ static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPh
 
 - (NSString *)simulatorDirectoryPath
 {
-    return [NSHomeDirectory() stringByAppendingFormat:@"/%@", kCBUserDirectoryPath];
+    return [NSHomeDirectory() stringByAppendingPathComponent:kCBUserDirectoryPath];
 }
 
 - (id)objectWithClass:(Class)klass inNibNamed:(NSString *)nibNamed
@@ -72,6 +91,12 @@ static NSString * const kCBUserDirectoryPath = @"Library/Application Support/iPh
     }
     
     return nil;
+}
+
+- (BOOL)isVersionString:(NSString *)string
+{
+    NSArray *matches = [self.versionRegex matchesInString:string options:NSMatchingReportCompletion range:NSMakeRange(0, string.length)];
+    return (matches.count != 0);
 }
 
 @end

@@ -17,5 +17,6 @@
 - (int)updateIntValueWithTextField:(NSTextField *)textField addValue:(NSInteger)addValue;
 - (NSString *)simulatorDirectoryPath;
 - (id)objectWithClass:(Class)klass inNibNamed:(NSString *)nibNamed;
+- (BOOL)isVersionString:(NSString *)string;
 
 @end

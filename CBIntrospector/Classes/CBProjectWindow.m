@@ -9,12 +9,12 @@
 #import "CBProjectWindow.h"
 #import "CBPathItem.h"
 #import "CBIntrospectorWindow.h"
+#import "CBPlatform.h"
 
 @interface CBProjectWindow () <NSOutlineViewDataSource>
 @property (weak) IBOutlet NSOutlineView *outlineView;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet CBIntrospectorWindow *introspectorWindow;
-@property (nonatomic, readonly) NSRegularExpression *versionRegex;
 @property (nonatomic, strong) NSArray *pathItems;
 @end
 
@@ -23,28 +23,8 @@
 @synthesize progressIndicator;
 @synthesize introspectorWindow;
 @synthesize pathItems = _pathItems;
-@synthesize versionRegex = _versionRegex;
-
-- (void)dealloc
-{
-    CB_Release(_versionRegex);
-    CB_Release(_pathItems);
-}
-
-- (NSRegularExpression *)versionRegex
-{
-    if (_versionRegex == nil)
-        _versionRegex = [[NSRegularExpression alloc] initWithPattern:@"^[0-9]\\.[0-9]" options:0 error:nil];
-    return _versionRegex;
-}
 
 #pragma mark - Misc
-
-- (BOOL)textIsVersionString:(NSString *)string
-{
-    NSArray *matches = [self.versionRegex matchesInString:string options:NSMatchingReportCompletion range:NSMakeRange(0, string.length)];
-    return (matches.count != 0);
-}
 
 - (void)reloadTree
 {
@@ -58,7 +38,7 @@
             return YES;
         else if ([item.name isEqualToString:@"Applications"])
             return YES;
-        else if ([self textIsVersionString:item.name]
+        else if ([[CBUtility sharedInstance] isVersionString:item.name]
                  && ([[NSFileManager defaultManager] fileExistsAtPath:item.path isDirectory:&isDir] && isDir))
             return YES;
         else if ([guidRegex matchesInString:item.name options:NSMatchingReportCompletion range:NSMakeRange(0, item.name.length)].count)
@@ -79,7 +59,7 @@
 - (IBAction)openProjectClicked:(id)sender 
 {
     CBPathItem *item = [self.outlineView itemAtRow:self.outlineView.selectedRow];
-    if (!item || [self textIsVersionString:item.name])
+    if (!item || [[CBUtility sharedInstance] isVersionString:item.name])
         return;
     
     [self.introspectorWindow switchProjectToDirectoryPath:item.path];
@@ -101,7 +81,7 @@
         return self.pathItems.count;
     }
     
-    if ([self textIsVersionString:item.name])
+    if ([[CBUtility sharedInstance] isVersionString:item.name])
     {
         NSArray *appDirItems = item.subItems;
         CBPathItem *appDirItem = appDirItems.lastObject;
@@ -115,7 +95,7 @@
 {
     if (item == nil)
         return YES;
-    return [self textIsVersionString:item.name];
+    return [[CBUtility sharedInstance] isVersionString:item.name];
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(CBPathItem *)item
@@ -125,7 +105,7 @@
         return [self.pathItems objectAtIndex:index];
     }
     
-    if ([self textIsVersionString:item.name])
+    if ([[CBUtility sharedInstance] isVersionString:item.name])
     {
         NSArray *appDirItems = item.subItems;
         CBPathItem *appDirItem = appDirItems.lastObject;

@@ -23,6 +23,8 @@
 		928FB4AB173CABA200FEC11C /* CBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB485173CAA6A00FEC11C /* CBUtility.m */; };
 		928FB4AE173CAD4C00FEC11C /* CBTitleBarContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928FB4AC173CAD4C00FEC11C /* CBTitleBarContentView.xib */; };
 		928FB4B1173CADAE00FEC11C /* CBTitleBarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B0173CADAE00FEC11C /* CBTitleBarContentView.m */; };
+		928FB4B6173CC54600FEC11C /* CBProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B5173CC54600FEC11C /* CBProject.m */; };
+		928FB4B9173CC55A00FEC11C /* CBPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 928FB4B8173CC55A00FEC11C /* CBPlatform.m */; };
 		92CBB0A615521B3C00F2217D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CBB0A515521B3C00F2217D /* Cocoa.framework */; };
 		92CBB0B015521B3C00F2217D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92CBB0AE15521B3C00F2217D /* InfoPlist.strings */; };
 		92CBB0B215521B3C00F2217D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CBB0B115521B3C00F2217D /* main.m */; };
@@ -77,6 +79,10 @@
 		928FB4AD173CAD4C00FEC11C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBTitleBarContentView.xib; sourceTree = "<group>"; };
 		928FB4AF173CADAE00FEC11C /* CBTitleBarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBTitleBarContentView.h; path = Classes/CBTitleBarContentView.h; sourceTree = "<group>"; };
 		928FB4B0173CADAE00FEC11C /* CBTitleBarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBTitleBarContentView.m; path = Classes/CBTitleBarContentView.m; sourceTree = "<group>"; };
+		928FB4B4173CC54600FEC11C /* CBProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBProject.h; path = Classes/CBProject.h; sourceTree = "<group>"; };
+		928FB4B5173CC54600FEC11C /* CBProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBProject.m; path = Classes/CBProject.m; sourceTree = "<group>"; };
+		928FB4B7173CC55A00FEC11C /* CBPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBPlatform.h; path = Classes/CBPlatform.h; sourceTree = "<group>"; };
+		928FB4B8173CC55A00FEC11C /* CBPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBPlatform.m; path = Classes/CBPlatform.m; sourceTree = "<group>"; };
 		92CBB0A115521B3C00F2217D /* View Introspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "View Introspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CBB0A515521B3C00F2217D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92CBB0A815521B3C00F2217D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -157,6 +163,17 @@
 				928FB48E173CAA8700FEC11C /* CBProjectWindow.m */,
 			);
 			name = Windows;
+			sourceTree = "<group>";
+		};
+		928FB4B3173CC51E00FEC11C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				928FB4B7173CC55A00FEC11C /* CBPlatform.h */,
+				928FB4B8173CC55A00FEC11C /* CBPlatform.m */,
+				928FB4B4173CC54600FEC11C /* CBProject.h */,
+				928FB4B5173CC54600FEC11C /* CBProject.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		92CBB09615521B3C00F2217D = {
@@ -257,6 +274,7 @@
 				928FB4A1173CAAC500FEC11C /* CBIntrospectConstants.h */,
 				928FB4A2173CAAC500FEC11C /* CBMacros.h */,
 				928FB4A3173CAAC500FEC11C /* CBSharedHeader.h */,
+				928FB4B3173CC51E00FEC11C /* Models */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -411,6 +429,8 @@
 				928FB4AA173CAAF400FEC11C /* INWindowButton.m in Sources */,
 				928FB4AB173CABA200FEC11C /* CBUtility.m in Sources */,
 				928FB4B1173CADAE00FEC11C /* CBTitleBarContentView.m in Sources */,
+				928FB4B6173CC54600FEC11C /* CBProject.m in Sources */,
+				928FB4B9173CC55A00FEC11C /* CBPlatform.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

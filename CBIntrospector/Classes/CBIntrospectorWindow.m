@@ -14,6 +14,7 @@
 #import "CBViewMessengerWindow.h"
 #import "NSObject+JSON.h"
 #import "CBTitleBarContentView.h"
+#import "CBPathItem.h"
 
 // option constants
 static NSString * const kCBUserSettingShowAllSubviewsKey = @"show-subviews";
@@ -44,6 +45,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 @property (nonatomic, assign) BOOL doShowAllSubviews;
 @property (nonatomic, assign) BOOL doMessageActiveView;
 @property (nonatomic, copy) NSString *defaultTitle;
+@property (nonatomic, readonly) NSRegularExpression *versionRegex;
 - (IBAction)treeNodeClicked:(id)sender;
 - (void)loadCurrentViewControls;
 - (void)textFieldUpdated:(NSTextField *)textField;
@@ -72,6 +74,8 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 @synthesize simulatorDirectoryPath;
 @synthesize defaultTitle;
 @synthesize doMessageActiveView = _doMessageActiveView;
+@synthesize versionRegex = _versionRegex;
+
 
 #pragma mark - Properties
 
@@ -119,6 +123,13 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 {
     _doMessageActiveView = doMessageActiveView;
     [[NSUserDefaults standardUserDefaults] setBool:doMessageActiveView forKey:kCBUserSettingMessageActiveViewKey];
+}
+
+- (NSRegularExpression *)versionRegex
+{
+    if (_versionRegex == nil)
+        _versionRegex = [[NSRegularExpression alloc] initWithPattern:@"^[0-9]\\.[0-9]" options:0 error:nil];
+    return _versionRegex;
 }
 
 #pragma mark - General Overrides
@@ -711,6 +722,48 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     };
     */
     //    NSView *titleBarView = aWindow.titleBarView;
+}
+
+#pragma mark - TitleBar Content
+
+- (void)reloadTitleBar
+{
+    NSArray *pathItems = [self projectPathItems];
+    
+    // get the platforms
+    
+    // get the projects
+    
+    
+}
+
+- (BOOL)textIsVersionString:(NSString *)string
+{
+    NSArray *matches = [self.versionRegex matchesInString:string options:NSMatchingReportCompletion range:NSMakeRange(0, string.length)];
+    return (matches.count != 0);
+}
+
+- (NSArray *)projectPathItems
+{
+     NSRegularExpression *guidRegex = [NSRegularExpression regularExpressionWithPattern:@"([A-Z0-9]{8})-([A-Z0-9]{4})-([A-Z0-9]{4})-([A-Z0-9]{4})-([A-Z0-9]{12})"
+                                                                               options:0 error:nil];
+    // build the path items collection
+    NSArray *pathItems = [CBPathItem pathItemsAtPath:[[CBUtility sharedInstance] simulatorDirectoryPath] recursive:YES block:^BOOL(CBPathItem *item) {
+        BOOL isDir;
+        if ([item.name hasSuffix:@".app"])
+            return YES;
+        else if ([item.name isEqualToString:@"Applications"])
+            return YES;
+        else if ([self textIsVersionString:item.name]
+                 && ([[NSFileManager defaultManager] fileExistsAtPath:item.path isDirectory:&isDir] && isDir))
+            return YES;
+        else if ([guidRegex matchesInString:item.name options:NSMatchingReportCompletion range:NSMakeRange(0, item.name.length)].count)
+            return YES;
+        
+        return NO; 
+    }];
+    
+    return pathItems;
 }
 
 @end
