@@ -8,7 +8,7 @@
 
 #import "CBTitleBarContentView.h"
 
-@interface CBTitleBarContentView ()
+@interface CBTitleBarContentView () <NSTextFieldDelegate>
 
 @property (strong) IBOutlet NSPopUpButton *platformPopupButton;
 @property (strong) IBOutlet NSPopUpButton *projectPopupButton;
@@ -180,6 +180,13 @@
     }
     
     [self projectMenuItemClicked:menuItem];
+}
+
+#pragma mark - TextField Delegate
+
+- (void)controlTextDidChange:(NSNotification *)obj
+{
+    [self.delegate titleBarContentView:self searchString:self.searchField.stringValue];
 }
 
 @end
