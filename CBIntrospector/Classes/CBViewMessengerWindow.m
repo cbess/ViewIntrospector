@@ -11,12 +11,20 @@
 #import "CBUIView.h"
 #import "NSObject+JSON.h"
 
+// specify the type of message to send to CBIntrospect
+typedef enum {
+    CBMessageTypeView,
+    CBMessageTypeObject,
+    CBMessageTypeRemoteNotification
+} CBMessageType;
 
 @interface CBViewMessengerWindow ()
+
 @property (weak) IBOutlet NSButton *receiverViewButton;
 @property (weak) IBOutlet NSTextField *messageTextField;
 @property (weak) IBOutlet NSButton *sendButton;
 @property (unsafe_unretained) IBOutlet NSTextView *responseTextView;
+@property (nonatomic, assign) CBMessageType messageType;
 
 @end
 
@@ -32,6 +40,7 @@
 {
     [self.sendButton setEnabled:NO];
     self.responseTextView.font = [NSFont fontWithName:@"Monaco" size:12];
+    self.messageType = CBMessageTypeView;
 }
 
 - (void)setReceiverView:(CBUIView *)receiverView
@@ -39,8 +48,7 @@
     if (receiverView == _receiverView)
         return;
     
-    CB_Release(_receiverView);
-    _receiverView = CB_Retain(receiverView);
+    _receiverView = receiverView;
     
     // load the window
     if (receiverView)
@@ -58,8 +66,31 @@
     [self.messageTextField becomeFirstResponder];
 }
 
+#pragma mark - Events
+
+- (IBAction)messengerTypeSelected:(NSPopUpButton *)sender
+{
+    self.messageType = [sender selectedTag];
+    self.receiverView = nil;
+
+    switch (self.messageType)
+    {
+        case CBMessageTypeRemoteNotification:
+        case CBMessageTypeObject:
+            // allow sending
+            [self.sendButton setEnabled:YES];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (IBAction)receiverViewButtonClicked:(id)sender 
 {
+    if (self.receiverView == nil)
+        return;
+    
     // select the view in the tree
     [self.introspectorWindow makeKeyAndOrderFront:nil];
     [self.introspectorWindow selectTreeItemWithMemoryAddress:self.receiverView.memoryAddress];
@@ -68,7 +99,20 @@
 - (IBAction)sendMessageButtonClicked:(id)sender
 {
     NSString *message = self.messageTextField.stringValue;
-    if (!message.length || !self.receiverView)
+    if (self.messageType == CBMessageTypeRemoteNotification)
+    {
+        NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+        messageInfo[kCBMessageTypeKey] = kCBMessageTypeRemoteNotification;
+        messageInfo[kUIViewMessageKey] = message;
+        
+        if ([self writeMessageJSON:messageInfo])
+        {
+            [self addLogToHistory:nssprintf(@"Sent remote notification: %@", message)];
+        }
+        
+        return;
+    }
+    else if (!message.length || !self.receiverView)
     {
         [[CBUtility sharedInstance] showMessageBoxWithString:@"No message to send."];
         return;
@@ -78,18 +122,24 @@
     NSString *rawMessage = [message stringByReplacingOccurrencesOfString:@"self" withString:[@"0x" stringByAppendingString:self.receiverView.memoryAddress]];
     
     NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-    [messageInfo setObject:self.receiverView.memoryAddress forKey:kUIViewMemoryAddressKey];
-    [messageInfo setObject:rawMessage forKey:kUIViewMessageKey];
+    messageInfo[kCBMessageTypeKey] = kCBMessageTypeView;
+    messageInfo[kUIViewMemoryAddressKey] = self.receiverView.memoryAddress;
+    messageInfo[kUIViewMessageKey] = rawMessage;
     
     if ([self writeMessageJSON:messageInfo])
     {
         // append message
         NSString *logString = [message stringByReplacingOccurrencesOfString:@"self" withString:nssprintf(@"<%@: 0x%@>", self.receiverView.className, self.receiverView.memoryAddress)];
-        self.responseTextView.string = [self.responseTextView.string stringByAppendingFormat:@"\n=> %@", logString];
+        [self addLogToHistory:logString];
     }
 }
 
 #pragma mark - Misc
+
+- (void)addLogToHistory:(NSString *)logString
+{
+    self.responseTextView.string = [self.responseTextView.string stringByAppendingFormat:@"\n=> %@", logString];
+}
 
 - (BOOL)writeMessageJSON:(NSDictionary *)jsonInfo
 {
@@ -113,4 +163,5 @@
 {
     self.responseTextView.string = @"";
 }
+
 @end
