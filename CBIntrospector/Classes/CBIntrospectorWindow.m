@@ -21,7 +21,7 @@ static NSString * const kCBUserSettingShowAllSubviewsKey = @"show-subviews";
 static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-view";
 
 @interface CBIntrospectorWindow () <NSDraggingDestination, CBUIViewManagerDelegate, NSOutlineViewDataSource, 
-    NSOutlineViewDelegate, NSTextFieldDelegate, NSWindowDelegate, NSSplitViewDelegate>
+    NSOutlineViewDelegate, NSTextFieldDelegate, NSWindowDelegate, NSSplitViewDelegate, CBTitleBarContentViewDelegate>
 {
     // honored in [loadCurrentViewControls]
     BOOL _doUpdateSelectedViewFile;
@@ -685,7 +685,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     }
 }
 
-#pragma mark - Window
+#pragma mark - TitleBar
 
 - (void)setupWindowTitleBar
 {
@@ -695,52 +695,12 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     self.titleBarContentView = [[CBUtility sharedInstance] objectWithClass:[CBTitleBarContentView class] inNibNamed:@"CBTitleBarContentView"];
     self.titleBarContentView.frame = self.titleBarView.bounds;
     [self.titleBarView addSubview:self.titleBarContentView];
+    self.titleBarContentView.delegate = self;
     
     [self reloadTitleBar];
-    
-    /*
-    self.titleBarDrawingBlock = ^(BOOL drawsAsMainWindow, CGRect drawingRect, CGPathRef clippingPath) {
-        CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-        CGContextAddPath(ctx, clippingPath);
-        CGContextClip(ctx);
-        
-        NSGradient *gradient = nil;
-        if (drawsAsMainWindow)
-        {
-            gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedRed:0 green:0.319 blue:1 alpha:1]
-                                                     endingColor:[NSColor colorWithCalibratedRed:0 green:0.627 blue:1 alpha:1]];
-            [[NSColor darkGrayColor] setFill];
-        }
-        else
-        { // inactive window
-            // set the default non-main window gradient colors
-            gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:0.851f alpha:1]
-                                                     endingColor:[NSColor colorWithCalibratedWhite:0.929f alpha:1]];
-            [[NSColor colorWithCalibratedWhite:0.6f alpha:1] setFill];
-        }
-        
-        [gradient drawInRect:drawingRect angle:90];
-        NSRectFill(NSMakeRect(NSMinX(drawingRect), NSMinY(drawingRect), NSWidth(drawingRect), 1));
-    };
-    */
-    //    NSView *titleBarView = aWindow.titleBarView;
 }
-
-#pragma mark - TitleBar Content
 
 - (void)reloadTitleBar
-{
-    NSArray *pathItems = [self projectPathItems];
-    [self.titleBarContentView reloadWithPathItems:pathItems];
-}
-
-- (BOOL)textIsVersionString:(NSString *)string
-{
-    NSArray *matches = [self.versionRegex matchesInString:string options:NSMatchingReportCompletion range:NSMakeRange(0, string.length)];
-    return (matches.count != 0);
-}
-
-- (NSArray *)projectPathItems
 {
      NSRegularExpression *guidRegex = [NSRegularExpression regularExpressionWithPattern:@"([A-Z0-9]{8})-([A-Z0-9]{4})-([A-Z0-9]{4})-([A-Z0-9]{4})-([A-Z0-9]{12})"
                                                                                options:0 error:nil];
@@ -751,7 +711,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
             return YES;
         else if ([item.name isEqualToString:@"Applications"])
             return YES;
-        else if ([self textIsVersionString:item.name]
+        else if ([[CBUtility sharedInstance] isVersionString:item.name]
                  && ([[NSFileManager defaultManager] fileExistsAtPath:item.path isDirectory:&isDir] && isDir))
             return YES;
         else if ([guidRegex matchesInString:item.name options:NSMatchingReportCompletion range:NSMakeRange(0, item.name.length)].count)
@@ -760,7 +720,19 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
         return NO; 
     }];
     
-    return pathItems;
+    [self.titleBarContentView reloadWithPathItems:pathItems];
+}
+
+#pragma mark - TitleBar Delegate
+
+- (void)titleBarContentViewReloadButtonClicked:(CBTitleBarContentView *)contentView
+{
+    [self reloadTitleBar];
+}
+
+- (void)titleBarContentView:(CBTitleBarContentView *)contentView searchString:(NSString *)searchString
+{
+    // filter the tree view
 }
 
 @end

@@ -32,6 +32,11 @@
  */
 - (void)titleBarContentView:(CBTitleBarContentView *)contentView searchString:(NSString *)searchString;
 
+/**
+ * Tells the delegate that the user clicked the reload platform button.
+ */
+- (void)titleBarContentViewReloadButtonClicked:(CBTitleBarContentView *)contentView;
+
 @optional
 /**
  * Tells the delegate that the platform selection has changed.

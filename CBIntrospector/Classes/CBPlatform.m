@@ -38,6 +38,9 @@
             [platform.projects addObject:project];
         }
         
+        // sort projects
+        [platform.projects sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        
         [platforms addObject:platform];
     }
     

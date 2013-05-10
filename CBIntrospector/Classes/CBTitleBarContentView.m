@@ -143,6 +143,11 @@
 
 #pragma mark - Events
 
+- (IBAction)reloadButtonClicked:(id)sender
+{
+    [self.delegate titleBarContentViewReloadButtonClicked:self];
+}
+
 - (void)projectMenuItemClicked:(NSMenuItem *)menuItem
 {
     CBProject *project = [self projectWithName:menuItem.title platformName:self.selectedPlatform.name];
