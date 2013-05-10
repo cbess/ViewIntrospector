@@ -10,6 +10,7 @@
 
 @interface CBTitleBarContentView () <NSTextFieldDelegate>
 
+@property (strong) IBOutlet NSTextField *titleTextField;
 @property (strong) IBOutlet NSPopUpButton *platformPopupButton;
 @property (strong) IBOutlet NSPopUpButton *projectPopupButton;
 @property (strong) IBOutlet NSSearchField *searchField;
@@ -26,6 +27,16 @@
         return self.platforms[0];
     
     return _selectedPlatform;
+}
+
+- (NSString *)title
+{
+    return self.titleTextField.stringValue;
+}
+
+- (void)setTitle:(NSString *)title
+{
+    self.titleTextField.stringValue = title;
 }
 
 #pragma mark - Overrides

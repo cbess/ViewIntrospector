@@ -30,7 +30,7 @@
             
             // create project
             CBProject *project = [CBProject new];
-            project.name = projectDirItem.name;
+            project.name = [projectDirItem.name stringByReplacingOccurrencesOfString:@".app" withString:[NSString string]];
             project.path = projectDirItem.path;
             
             // store as platform project

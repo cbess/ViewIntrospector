@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *platforms;
 @property (nonatomic, weak) CBPlatform *selectedPlatform;
 @property (nonatomic, weak) CBProject *selectedProject;
+@property (nonatomic, copy) NSString *title;
 
 /**
  * Reloads the project and platform controls

@@ -205,6 +205,12 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     return NO;
 }
 
+- (void)setTitle:(NSString *)aString
+{
+    [super setTitle:aString];
+    self.titleBarContentView.title = aString;
+}
+
 #pragma mark - Drag & Drop
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
@@ -362,7 +368,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     [self.treeView reloadData];
     
     // update the title, adding the bundle name
-    self.title = nssprintf(@"%@ - %@", [self bundleNameForPath:self.syncDirectoryPath], self.defaultTitle);
+    self.title = self.titleBarContentView.selectedProject.name;
     
     // make sure it is syncing
     if (!self.viewManager.syncing && treeInfo.count > 0)
