@@ -156,7 +156,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 { // handles key down events
 	int key = [evt keyCode];
 	NSUInteger modFlag = [evt modifierFlags];
-//    NSLog(@"main window key event: %d", key);
+    NSLog(@"main window key event: %d", key);
     BOOL shiftKey = (modFlag | NSShiftKeyMask);
     
     // ignore keys from the tree view
@@ -191,7 +191,10 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     }
     
 	if (modFlag | NSCommandKeyMask) switch (key)
-	{		
+	{
+        case 3: // F
+            break;
+            
 		case 12: // Q (quit application)
             // confirm closing?
             return NO;
@@ -363,7 +366,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 {
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.syncDirectoryPath])
     {
-        NSString *msg = [@"Unable to reload the tree.\nCheck path: " stringByAppendingString:self.syncDirectoryPath ?: @"None"];
+        NSString *msg = [NSLocalizedString(@"Unable to reload the tree.\nCheck path: ", nil) stringByAppendingString:self.syncDirectoryPath ?: NSLocalizedString(@"None", nil)];
         [[CBUtility sharedInstance] showMessageBoxWithString:msg];
         return;
     }
@@ -752,7 +755,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
         /**
          Allowing reload while a view is selected will un-sync the popup buttons, which may cause confusion.
          */
-        [[CBUtility sharedInstance] showMessageBoxWithString:@"Please turn off the Introspector in the Simulator."];
+        [[CBUtility sharedInstance] showMessageBoxWithString:NSLocalizedString(@"Please turn off the Introspector in the Simulator.", nil)];
         return;
     }
     
@@ -774,7 +777,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
         info[kUIViewSubviewsKey] = items;
         self.filteredTreeContents = info;
         
-        CBDebugLog(@"count: %lu", items.count);
+//        CBDebugLog(@"count: %lu", items.count);
     }
     else
     {
