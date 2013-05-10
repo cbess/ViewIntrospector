@@ -45,7 +45,10 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 @property (nonatomic, assign) BOOL doShowAllSubviews;
 @property (nonatomic, assign) BOOL doMessageActiveView;
 @property (nonatomic, copy) NSString *defaultTitle;
-@property (nonatomic, readonly) NSRegularExpression *versionRegex;
+// if nil then no filtering is active
+@property (nonatomic, copy) NSString *filterString;
+@property (nonatomic, copy) NSDictionary *filteredTreeContents;
+@property (nonatomic, strong) NSDictionary *canonicalTreeContents;
 - (IBAction)treeNodeClicked:(id)sender;
 - (void)loadCurrentViewControls;
 - (void)textFieldUpdated:(NSTextField *)textField;
@@ -74,8 +77,6 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 @synthesize simulatorDirectoryPath;
 @synthesize defaultTitle;
 @synthesize doMessageActiveView = _doMessageActiveView;
-@synthesize versionRegex = _versionRegex;
-
 
 #pragma mark - Properties
 
@@ -125,11 +126,9 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     [[NSUserDefaults standardUserDefaults] setBool:doMessageActiveView forKey:kCBUserSettingMessageActiveViewKey];
 }
 
-- (NSRegularExpression *)versionRegex
+- (NSDictionary *)treeContents
 {
-    if (_versionRegex == nil)
-        _versionRegex = [[NSRegularExpression alloc] initWithPattern:@"^[0-9]\\.[0-9]" options:0 error:nil];
-    return _versionRegex;
+    return (self.filterString ? self.filteredTreeContents : self.canonicalTreeContents);
 }
 
 #pragma mark - General Overrides
@@ -334,6 +333,12 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 {
     CBUIView *view = self.viewManager.currentView;
     
+    if (view.className == nil)
+    {
+        [self clearControls];
+        return;
+    }
+    
     if (_doUpdateSelectedViewFile)
     {
         [self.viewManager updateSelectedViewToView:view];
@@ -366,7 +371,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     // load json dictionary from disk
     NSString *filePath = [self.syncDirectoryPath stringByAppendingPathComponent:kCBTreeDumpFileName];
     NSDictionary *treeInfo = [[CBUtility sharedInstance] dictionaryWithJSONFilePath:filePath];
-    self.treeContents = treeInfo;
+    self.canonicalTreeContents = treeInfo;
     [self.treeView reloadData];
     
     // update the title, adding the bundle name
@@ -480,23 +485,55 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     view.frame = frame;
 }
 
+- (void)clearControls
+{
+    self.messengerWindow.receiverView = nil;
+    [self.headerButton setTitle:self.defaultTitle];
+    self.leftPositionTextField.stringValue = self.topPositionTextField.stringValue = // below
+    self.widthTextField.stringValue = self.heightTextField.stringValue = @"";
+    
+    self.alphaSlider.floatValue = 100;
+    self.hiddenSwitch.state = NSOffState;
+    self.textView.string = @"";
+}
+
 #pragma mark - Find in tree
 
 - (NSDictionary *)itemFromJSON:(NSDictionary *)jsonInfo withMemoryAddress:(NSString *)memAddress
 {
-    if ([[jsonInfo valueForKey:kUIViewMemoryAddressKey] isEqualToString:memAddress])
-        return jsonInfo;
+    NSArray *items = [self itemsFromJSON:jsonInfo withValue:memAddress key:kUIViewMemoryAddressKey partialMatch:NO];
+    if (items.count)
+        return items.lastObject;
+    
+    return nil;
+}
+
+- (NSArray *)itemsFromJSON:(NSDictionary *)jsonInfo withValue:(NSString *)value key:(NSString *)key partialMatch:(BOOL)allowPartialMatch
+{
+    NSString *infoValue = [jsonInfo valueForKey:key];
+    if (allowPartialMatch)
+    {
+        if ([infoValue rangeOfString:value options:NSCaseInsensitiveSearch].length)
+            return @[jsonInfo];
+    }
+    else
+    {
+        if ([infoValue isEqualToString:value])
+            return @[jsonInfo];
+    }
+    
+    NSMutableArray *items = [NSMutableArray array];
     
     // check the subviews
     NSArray *subviewsInfo = [jsonInfo valueForKey:kUIViewSubviewsKey];
     for (NSDictionary *subviewInfo in subviewsInfo)
     {
-        NSDictionary *info = [self itemFromJSON:subviewInfo withMemoryAddress:memAddress];
-        if (info)
-            return info;
+        NSArray *subitems = [self itemsFromJSON:subviewInfo withValue:value key:key partialMatch:allowPartialMatch];
+        if (subitems.count)
+            [items addObjectsFromArray:subitems];
     }
     
-    return nil;
+    return items;
 }
 
 - (void)selectTreeItemWithMemoryAddress:(NSString *)memAddress
@@ -543,17 +580,11 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 
 - (void)viewManagerClearedView:(CBUIViewManager *)manager
 {
-    self.messengerWindow.receiverView = nil;
-    [self.headerButton setTitle:@"View Introspector"];
-    self.leftPositionTextField.stringValue = self.topPositionTextField.stringValue = // below
-    self.widthTextField.stringValue = self.heightTextField.stringValue = @"";
-    
-    self.alphaSlider.floatValue = 100;
-    self.hiddenSwitch.state = NSOffState;
-    self.textView.string = @"";
+    [self clearControls];
     
     // clear tree view
-    self.treeContents = nil;
+    self.canonicalTreeContents = nil;
+    self.filteredTreeContents = nil;
     [self.treeView reloadData];
     self.title = self.defaultTitle;
     
@@ -731,6 +762,31 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 - (void)titleBarContentView:(CBTitleBarContentView *)contentView searchString:(NSString *)searchString
 {
     // filter the tree view
+    if (searchString.length)
+    {
+        self.filterString = searchString;
+        // filter canonical tree
+        // for right now, it flattens the tree to show results
+        NSArray *items = [self itemsFromJSON:self.canonicalTreeContents withValue:searchString key:kUIViewClassNameKey partialMatch:YES];
+        
+        // add under the window info
+        NSMutableDictionary *info = self.canonicalTreeContents.mutableCopy;
+        info[kUIViewSubviewsKey] = items;
+        self.filteredTreeContents = info;
+        
+        CBDebugLog(@"count: %lu", items.count);
+    }
+    else
+    {
+        self.filterString = nil;
+        self.filteredTreeContents = nil;
+    }
+    
+    [self.treeView reloadData];
+    
+    // re-expand tree after building full tree
+    if (self.filteredTreeContents == nil)
+        [self expandViewTree];
 }
 
 - (void)titleBarContentView:(CBTitleBarContentView *)contentView selectedProject:(CBProject *)project

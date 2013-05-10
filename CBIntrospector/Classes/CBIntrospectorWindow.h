@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic, readonly) NSString *simulatorDirectoryPath;
 @property (weak, nonatomic, readonly) NSString *syncDirectoryPath;
-@property (nonatomic, strong) NSDictionary *treeContents;
+@property (nonatomic, readonly) NSDictionary *treeContents;
 @property (nonatomic, readonly) CBUIViewManager *viewManager;
 
 - (void)switchProjectToDirectoryPath:(NSString *)path;
