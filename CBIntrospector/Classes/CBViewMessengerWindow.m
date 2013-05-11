@@ -102,6 +102,13 @@ typedef enum {
     BOOL hasMessage = YES;
     if (self.messageType == CBMessageTypeRemoteNotification)
     {
+        // precheck message, that it is a dictionary
+        if (![[message objectFromJSONString] isKindOfClass:[NSDictionary class]])
+        {
+            [[CBUtility sharedInstance] showMessageBoxWithString:@"Remote notification payload must be in a dictionary."];
+            return;
+        }
+        
         NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:2];
         messageInfo[kCBMessageTypeKey] = kCBMessageTypeRemoteNotification;
         messageInfo[kUIViewMessageKey] = message;
@@ -128,12 +135,11 @@ typedef enum {
         return;
     }
     
-    NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-    
-    // replace `self`
+    NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:3];
     NSString *rawMessage = message;
     if (self.receiverView)
     {
+        // replace `self` with memaddress
         rawMessage = [message stringByReplacingOccurrencesOfString:@"self" withString:[@"0x" stringByAppendingString:self.receiverView.memoryAddress]];
         messageInfo[kUIViewMemoryAddressKey] = self.receiverView.memoryAddress;
     }
@@ -144,7 +150,8 @@ typedef enum {
     if ([self writeMessageJSON:messageInfo])
     {
         // append message
-        NSString *logString = [message stringByReplacingOccurrencesOfString:@"self" withString:nssprintf(@"<%@: 0x%@>", self.receiverView.className, self.receiverView.memoryAddress)];
+        NSString *selfString = nssprintf(@"<%@: 0x%@>", self.receiverView.className, self.receiverView.memoryAddress);
+        NSString *logString = [message stringByReplacingOccurrencesOfString:@"self" withString:selfString];
         [self addLogToHistory:logString];
     }
 }
