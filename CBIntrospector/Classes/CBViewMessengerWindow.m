@@ -99,6 +99,7 @@ typedef enum {
 - (IBAction)sendMessageButtonClicked:(id)sender
 {
     NSString *message = self.messageTextField.stringValue;
+    BOOL hasMessage = YES;
     if (self.messageType == CBMessageTypeRemoteNotification)
     {
         NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:2];
@@ -112,19 +113,33 @@ typedef enum {
         
         return;
     }
+    else if (self.messageType == CBMessageTypeObject)
+    {
+        hasMessage = message.length;
+    }
     else if (!message.length || !self.receiverView)
+    {
+        hasMessage = NO;
+    }
+    
+    if (!hasMessage)
     {
         [[CBUtility sharedInstance] showMessageBoxWithString:@"No message to send."];
         return;
     }
     
-    // replace `self`
-    NSString *rawMessage = [message stringByReplacingOccurrencesOfString:@"self" withString:[@"0x" stringByAppendingString:self.receiverView.memoryAddress]];
-    
     NSMutableDictionary *messageInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-    messageInfo[kCBMessageTypeKey] = kCBMessageTypeView;
-    messageInfo[kUIViewMemoryAddressKey] = self.receiverView.memoryAddress;
+    
+    // replace `self`
+    NSString *rawMessage = message;
+    if (self.receiverView)
+    {
+        rawMessage = [message stringByReplacingOccurrencesOfString:@"self" withString:[@"0x" stringByAppendingString:self.receiverView.memoryAddress]];
+        messageInfo[kUIViewMemoryAddressKey] = self.receiverView.memoryAddress;
+    }
+    
     messageInfo[kUIViewMessageKey] = rawMessage;
+    messageInfo[kCBMessageTypeKey] = kCBMessageTypeView;
     
     if ([self writeMessageJSON:messageInfo])
     {
