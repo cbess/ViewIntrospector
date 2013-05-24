@@ -28,6 +28,11 @@
         {
             CBPathItem *projectDirItem = guidItem.subItems.lastObject;
             
+            // may be nil, if something else is in the directory besides app bundles
+            NSString *projName = [projectDirItem.name stringByReplacingOccurrencesOfString:@".app" withString:[NSString string]];
+            if (projName == nil)
+                continue;
+            
             // create project
             CBProject *project = [CBProject new];
             project.name = [projectDirItem.name stringByReplacingOccurrencesOfString:@".app" withString:[NSString string]];
