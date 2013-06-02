@@ -15,6 +15,7 @@
 #import "NSObject+JSON.h"
 #import "CBTitleBarContentView.h"
 #import "CBPathItem.h"
+#import "NSOutlineView+Extension.h"
 
 // option constants
 static NSString * const kCBUserSettingShowAllSubviewsKey = @"show-subviews";
@@ -25,6 +26,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 {
     // honored in [loadCurrentViewControls]
     BOOL _doUpdateSelectedViewFile;
+    CGFloat _maxColumnWidth;
 }
 @property (weak) IBOutlet NSMenuItem *showAllSubviewsMenuItem;
 @property (weak) IBOutlet NSMenuItem *messageActiveViewMenuItem;
@@ -259,7 +261,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
 {
     if (self.viewManager.currentView)
     {
-        [self.treeView reloadData];
+        [self reloadTreeData];
         [self expandViewTree];
         
         [self selectTreeItemWithMemoryAddress:self.viewManager.currentView.memoryAddress];
@@ -363,6 +365,11 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     self.alphaSlider.floatValue = view.alpha * 100;
 }
 
+- (void)reloadTreeData
+{
+    [self.treeView reloadData];
+}
+
 - (void)reloadTree
 {
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.syncDirectoryPath])
@@ -376,7 +383,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     NSString *filePath = [self.syncDirectoryPath stringByAppendingPathComponent:kCBTreeDumpFileName];
     NSDictionary *treeInfo = [[CBUtility sharedInstance] dictionaryWithJSONFilePath:filePath];
     self.canonicalTreeContents = treeInfo;
-    [self.treeView reloadData];
+    [self reloadTreeData];
     
     // update the title, adding the bundle name
     self.title = self.titleBarContentView.selectedProject.name;
@@ -589,7 +596,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     // clear tree view
     self.canonicalTreeContents = nil;
     self.filteredTreeContents = nil;
-    [self.treeView reloadData];
+    [self reloadTreeData];
     self.title = self.defaultTitle;
     
     [[NSFileManager defaultManager] removeItemAtPath:[self.syncDirectoryPath stringByAppendingPathComponent:kCBSelectedViewFileName] error:nil];
@@ -647,6 +654,18 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
     // get the image
     cell.title = name;
     cell.image = [NSImage imageNamed:@"NSView.icns"];
+    
+    float rowWidth = cell.image.size.width;
+    float indentationWidth = outlineView.indentationPerLevel * [outlineView levelForItem:jsonInfo];
+    rowWidth += indentationWidth;
+     
+    // Find the space needed to display the cell text.
+    CGSize size = [name sizeWithAttributes:@{NSFontAttributeName : cell.font}];
+    rowWidth += size.width;
+    if (rowWidth > _maxColumnWidth)
+    {
+        tableColumn.width = _maxColumnWidth = rowWidth;
+    }
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification
@@ -786,7 +805,7 @@ static NSString * const kCBUserSettingMessageActiveViewKey = @"message-active-vi
         self.filteredTreeContents = nil;
     }
     
-    [self.treeView reloadData];
+    [self reloadTreeData];
     
     // re-expand tree after building full tree
     if (self.filteredTreeContents == nil)
