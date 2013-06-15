@@ -44,6 +44,7 @@
 - (void)awakeFromNib
 {
     self.popupContainerView.image = [NSImage imageNamed:@"platform-selector-button"];
+    self.title = [NSString string];
 }
 
 #pragma mark - Misc
