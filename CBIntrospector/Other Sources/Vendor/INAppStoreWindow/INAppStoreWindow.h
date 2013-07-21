@@ -64,8 +64,13 @@
  */
 @property (nonatomic) BOOL verticalTrafficLightButtons;
 
-/** 
- If you want to hide the title bar in fullscreen mode, set this boolean to YES 
+/**
+ Whether the title is centred vertically
+ */
+@property (nonatomic) BOOL verticallyCenterTitle;
+
+/**
+ If you want to hide the title bar in fullscreen mode, set this boolean to YES
  */
 @property (nonatomic) BOOL hideTitleBarInFullScreen;
 
@@ -111,6 +116,11 @@
 @property (INAppStoreWindowRetain) INWindowButton *minimizeButton;
 @property (INAppStoreWindowRetain) INWindowButton *zoomButton;
 @property (INAppStoreWindowRetain) INWindowButton *fullScreenButton;
+
+/**
+ The font used for the title bar
+ */
+@property (INAppStoreWindowRetain) NSFont *titleFont;
 
 /** 
  The colors of the title bar background gradient and baseline separator, in main and non-main variants. 
