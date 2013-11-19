@@ -44,7 +44,7 @@
         }
         
         // sort projects
-        [platform.projects sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        [platform.projects sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name.lowercaseString" ascending:YES]]];
         
         [platforms addObject:platform];
     }
